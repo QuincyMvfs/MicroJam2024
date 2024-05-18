@@ -323,5 +323,5 @@ MonoBehaviour:
   LookTarget: {fileID: 0}
   _xMovementSpeed: 1
   _stepSpeed: 100
-  _stepDelay: 0.2
+  _stepDelay: 0.03
   _maxSteps: 4
