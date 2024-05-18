@@ -12,22 +12,12 @@ public class ZoneIndicator : MonoBehaviour
 
     private void Start()
     {
+        _zoneIndicator.SetActive(false);
         _objectRenderer = _zoneIndicator.GetComponent<Renderer>();
     }
 
     public void SetIndicatorActive(bool isActive)
     {
         _objectRenderer.material = isActive ? _redMaterial : _whiteMaterial;
-    }
-
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Collider collider = GetComponent<Collider>();
-
-        if (collider is SphereCollider sphereCollider)
-        {
-            //Gizmos.DrawWireSphere(sphereCollider.bounds.center, sphereCollider.radius);
-        }
     }
 }

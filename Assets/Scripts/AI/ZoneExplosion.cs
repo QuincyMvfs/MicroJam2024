@@ -13,10 +13,13 @@ public class ZoneExplosion : MonoBehaviour
     [Tooltip("Make 2 zones to apply damage if health below this threshold")]
     [SerializeField] private float _healthThreshold = 50.0f;
 
+    private AIController _aiController;
+
     private HealthComponent _healthComponent;
 
     private void Start()
     {
+        _aiController = GetComponent<AIController>();
         _healthComponent = GetComponent<HealthComponent>();
     }
 
@@ -86,6 +89,8 @@ public class ZoneExplosion : MonoBehaviour
         {
             ApplyGroundPoundDamage(secondZoneIndex);
         }
+
+        _aiController.ResetToIdle();
     }
 
     int DeterminePlayerZone()

@@ -10,6 +10,7 @@ public class Groundpound : MonoBehaviour
     [SerializeField] private bool _drawGizmos = false;
     [SerializeField] private GameObject _floor;
     [SerializeField] private GameObject _shaderObject;
+    private AIController _aiController;
 
     private Material _shaderMaterial;
     private bool _hasExploded = false;
@@ -17,6 +18,8 @@ public class Groundpound : MonoBehaviour
 
     private void Start()
     {
+        _aiController = GetComponent<AIController>();
+
         if (_shaderObject != null)
         {
             Renderer renderer = _shaderObject.GetComponent<Renderer>();
@@ -74,6 +77,7 @@ public class Groundpound : MonoBehaviour
 
         // Reset the explosion effect after completion
         ResetExplosion();
+        _aiController.ResetToIdle();
     }
 
     void TriggerExplosionAtRadius(float radius)

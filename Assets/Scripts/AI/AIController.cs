@@ -21,15 +21,19 @@ public enum AIState
 public class AIController : MonoBehaviour
 {
     [SerializeField] private float _attackCooldown = 3.0f;
-    [SerializeField] private ZoneExplosion _zoneExplosion;
-    [SerializeField] private Groundpound _groundpound;
-    [SerializeField] private OneShotCoverAttack _oneShotCoverAttack;
+
+    private ZoneExplosion _zoneExplosion;
+    private Groundpound _groundpound;
+    private OneShotCoverAttack _oneShotCoverAttack;
 
     private AIState _currentState = AIState.Idle;
-    private float _nextAttackTime;
 
     void Start()
     {
+        _zoneExplosion = GetComponent<ZoneExplosion>();
+        _groundpound = GetComponent<Groundpound>();
+        _oneShotCoverAttack = GetComponent<OneShotCoverAttack>();
+
         // Start the AI behavior coroutine
         StartCoroutine(AIBehaviorRoutine());
     }
@@ -80,10 +84,10 @@ public class AIController : MonoBehaviour
         switch (chosenAttack)
         {
             case AttackType.GroundPound:
-                StartCoroutine(OneShotSequence());
+                StartCoroutine(GroundPoundSequence());
                 break;
             case AttackType.ZoneExplosion:
-                StartCoroutine(OneShotSequence());
+                StartCoroutine(ZoneExplosionSequence());
                 break;
             case AttackType.OneShotCoverAttack:
                 StartCoroutine(OneShotSequence());
@@ -92,21 +96,6 @@ public class AIController : MonoBehaviour
                 // Add other cases for different attacks
         }
     }
-
-    IEnumerator ZoneExplosionSequence()
-    {
-        //TODO::_animator.SetTrigger("GroundPound");
-
-        yield return new WaitForSeconds(0.5f);
-        _zoneExplosion.PerformGroundPound();
-
-        // Return to Idle state after attack
-        _currentState = AIState.Idle;
-
-        // Restart the AI behavior routine
-        yield return null;
-    }
-
     IEnumerator GroundPoundSequence()
     {
         //TODO::_animator.SetTrigger("GroundPound");
@@ -114,8 +103,16 @@ public class AIController : MonoBehaviour
         yield return new WaitForSeconds(0.5f); 
         _groundpound.StartExplosion();
 
-        // Return to Idle state after attack
-        _currentState = AIState.Idle;
+        // Restart the AI behavior routine
+        yield return null;
+    }
+
+    IEnumerator ZoneExplosionSequence()
+    {
+        //TODO::_animator.SetTrigger("GroundPound");
+
+        yield return new WaitForSeconds(0.5f);
+        _zoneExplosion.PerformGroundPound();
 
         // Restart the AI behavior routine
         yield return null;
@@ -128,12 +125,13 @@ public class AIController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         _oneShotCoverAttack.ExecuteOneShot();
 
-        // Return to Idle state after attack
-        _currentState = AIState.Idle;
-
         // Restart the AI behavior routine
         yield return null;
     }
 
-
+    // Called from the attack classes
+    public void ResetToIdle()
+    {
+        _currentState = AIState.Idle;
+    }
 }

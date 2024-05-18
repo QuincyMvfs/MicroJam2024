@@ -3,13 +3,33 @@ using UnityEngine;
 
 public class OneShotCoverAttack : MonoBehaviour
 {
-    [SerializeField] private float _damageAmount = 999999999.0f;
+    [SerializeField] private float _damageAmount = 999999.0f;
     [SerializeField] private Transform _playerTransform;
     [SerializeField] private GameObject _vfxPrefab;
-    [SerializeField] private float _warningTimer = 10.0f; 
+    [SerializeField] private float _warningTimer = 10.0f;
+    [SerializeField] private GameObject _shaderObject;
+    private AIController _aiController;
+
+    private Material _shaderMaterial;
+
+    private void Start()
+    {
+        _aiController = GetComponent<AIController>();
+
+        if (_shaderObject != null)
+        {
+            Renderer renderer = _shaderObject.GetComponent<Renderer>();
+            if (renderer != null)
+            {
+                // Get the material instance
+                _shaderMaterial = renderer.material;
+            }
+        }
+    }
 
     public void ExecuteOneShot()
     {
+        _shaderMaterial.SetFloat("_FillAmount", 1.0f);
         StartCoroutine(PerformOneShot());
     }
 
@@ -43,5 +63,7 @@ public class OneShotCoverAttack : MonoBehaviour
         {
             Instantiate(_vfxPrefab, this.transform.position, Quaternion.identity);
         }
+        _shaderMaterial.SetFloat("_FillAmount", 0.0f);
+        _aiController.ResetToIdle();
     }
 }
