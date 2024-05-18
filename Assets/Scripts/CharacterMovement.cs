@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,10 +10,14 @@ using UnityEngine.InputSystem;
 public class CharacterMovement : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rb;
+    [SerializeField] private GameObject LookTarget;
 
     [SerializeField] private float _xMovementSpeed = 5.0f;
-    [SerializeField] private float _yMovementSpeed = 10.0f;
+    [SerializeField] private float _stepSpeed = 100.0f; 
+    [SerializeField] private float _stepDelay = 0.2f; 
+    [SerializeField] private int _maxSteps = 4;
 
+    private int _currentStep = 0;
     protected IEnumerator _currentState;
 
     // Start is called before the first frame update
@@ -24,6 +29,11 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 LookPosition = LookTarget.transform.position - transform.position;
+        LookPosition.y = 0;
+        Quaternion LookRotation = Quaternion.LookRotation(LookPosition);
+        transform.rotation = LookRotation;
+
     }
 
     public void ChangeState(IEnumerator newState)
@@ -58,19 +68,31 @@ public class CharacterMovement : MonoBehaviour
 
     protected IEnumerator MoveForward()
     {
-        while (true)
+        _currentStep++;
+        if (_currentStep >= _maxSteps)
         {
-            this.transform.position += new Vector3(0, 0, (_yMovementSpeed * Time.fixedDeltaTime));
-            yield return null;
+            _currentStep = _maxSteps;
+            yield break;
+        }
+        else
+        {
+            this.transform.Translate(new Vector3(0, 0, (_stepSpeed * Time.fixedDeltaTime)), Space.Self);
+            yield return new WaitForSeconds(_stepDelay);
         }
     }
 
     protected IEnumerator MoveBackward()
     {
-        while (true)
+        _currentStep--;
+        if (_currentStep <= 0)
         {
-            this.transform.position -= new Vector3(0, 0, (_yMovementSpeed * Time.fixedDeltaTime));
-            yield return null;
+            _currentStep = 0;
+            yield break;
+        }
+        else
+        {
+            this.transform.Translate(new Vector3(0, 0, -(_stepSpeed * Time.fixedDeltaTime)), Space.Self);
+            yield return new WaitForSeconds(_stepDelay);
         }
     }
 
@@ -78,7 +100,7 @@ public class CharacterMovement : MonoBehaviour
     {
         while (true)
         {
-            this.transform.position -= new Vector3((_xMovementSpeed * Time.fixedDeltaTime), 0, 0);
+            this.transform.Translate(new Vector3(-(_xMovementSpeed * Time.fixedDeltaTime), 0, 0), Space.Self);
             yield return null;
         }
     }
@@ -87,7 +109,7 @@ public class CharacterMovement : MonoBehaviour
     {
         while (true)
         {
-            this.transform.position += new Vector3((_xMovementSpeed * Time.fixedDeltaTime), 0, 0);
+            this.transform.Translate(new Vector3((_xMovementSpeed * Time.fixedDeltaTime), 0, 0), Space.Self);
             yield return null;
         }
     }
