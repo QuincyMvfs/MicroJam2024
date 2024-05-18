@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Gyms/UI_GYM.unity
+    guid: 48f796ee839ea4143935b69e1cdcbcf0
+  - enabled: 1
+    path: Assets/Scenes/Gyms/VFX_GYM.unity
+    guid: a83e1a50fa023514090db65d5e41e961
   m_configObjects: {}
