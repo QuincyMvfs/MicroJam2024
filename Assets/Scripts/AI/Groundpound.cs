@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Groundpound : MonoBehaviour
 {
-    [SerializeField] private float _explosionForce = 50f;
     [SerializeField] private float _maxRadius = 20f;
     [SerializeField] private float _explosionDuration = 2f; 
     [SerializeField] private float _damageAmount = 1f;
@@ -87,13 +86,6 @@ public class Groundpound : MonoBehaviour
         foreach (Collider hitCollider in hitColliders)
         {
             if (hitCollider.gameObject == this.gameObject) continue;
-
-            Rigidbody rb = hitCollider.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                Vector3 forceDirection = (hitCollider.transform.position - _floor.transform.position).normalized;
-                rb.AddForce(forceDirection * _explosionForce);
-            }
 
             HealthComponent targetHealth = hitCollider.GetComponent<HealthComponent>();
             if (targetHealth != null)
