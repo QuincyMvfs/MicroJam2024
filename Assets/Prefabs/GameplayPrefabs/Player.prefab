@@ -452,13 +452,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lookTarget: {fileID: 0}
   _playerMesh: {fileID: 5986849367083559039}
-  _xMovementSpeed: 1
+  _xMovementSpeed: 3
   _stepSpeed: 100
   _stepDelay: 0.03
   _maxSteps: 6
   _occlusionMask:
     serializedVersion: 2
     m_Bits: 1
+  _sphereCastRadius: 1
 --- !u!114 &4780969592950662986
 MonoBehaviour:
   m_ObjectHideFlags: 0
