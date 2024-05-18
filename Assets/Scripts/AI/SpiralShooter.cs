@@ -11,6 +11,7 @@ public class SpiralShooter : MonoBehaviour
     [Header("Projectile Variables")]
     [SerializeField] private float _fireDelay = 0.05f;
     [SerializeField] private float _projectileSpeed = 1000;
+    [SerializeField] private float _projectileLifetime = 3.0f;
     [SerializeField] private float _damage = 10.0f;
     [SerializeField] private int _totalProjectilePerFire = 4;
 
@@ -44,7 +45,7 @@ public class SpiralShooter : MonoBehaviour
                 currentDegree += degreeDifference;
                 Projectile Spawned = Instantiate(_projectile, _muzzleTransform.position, _muzzleTransform.rotation);
                 Spawned.transform.Rotate(0, currentDegree, 0);
-                Spawned.Launch(_projectileSpeed, _damage, this.gameObject);
+                Spawned.Launch(_projectileSpeed, _damage, _projectileLifetime, this.gameObject);
             }
           
             yield return new WaitForSeconds(_fireDelay);

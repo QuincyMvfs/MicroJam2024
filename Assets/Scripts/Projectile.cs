@@ -8,8 +8,6 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] private float _lifetime = 5.0f;
-
     private Rigidbody _rb;
     private Collider _collider;
     private float _damage;
@@ -24,12 +22,12 @@ public class Projectile : MonoBehaviour
         _collider.isTrigger = true;
     }
 
-    public void Launch(float speed, float damage, GameObject owner)
+    public void Launch(float speed, float damage, float lifetime, GameObject owner)
     {
         _rb.AddForce(transform.forward * speed);
         _damage = damage;
         _owner = owner;
-        Destroy(gameObject, _lifetime);
+        Destroy(gameObject, lifetime);
     }
 
     private void OnTriggerEnter(Collider other)
