@@ -8,6 +8,17 @@ public class ZoneExplosion : MonoBehaviour
     [SerializeField] private GameObject[] _damageZones;
     [SerializeField] private float _damageAmount = 10.0f;
     [SerializeField] private Transform _playerTransform;
+    [SerializeField] private float _warningWaitTime = 2f;
+
+    [Tooltip("Make 2 zones to apply damage if health below this threshold")]
+    [SerializeField] private float _healthThreshold = 50.0f;
+
+    private HealthComponent _healthComponent;
+
+    private void Start()
+    {
+        _healthComponent = GetComponent<HealthComponent>();
+    }
 
     public void PerformGroundPound()
     {
@@ -30,7 +41,6 @@ public class ZoneExplosion : MonoBehaviour
 
     IEnumerator GroundPoundSequence()
     {
-        // Randomly select a damage zone
         int zoneIndex = DeterminePlayerZone();
 
         // Check if the selected zone is valid
@@ -43,17 +53,39 @@ public class ZoneExplosion : MonoBehaviour
         ZoneIndicator zone = _damageZones[zoneIndex].GetComponent<ZoneIndicator>();
         zone.SetIndicatorActive(true);
 
+        int secondZoneIndex = -1;
+        if (_healthComponent != null && _healthComponent.CurrentHealth < _healthThreshold)
+        {
+            // Select a second random zone that is different from the first one
+            secondZoneIndex = zoneIndex;
+            while (secondZoneIndex == zoneIndex || _damageZones[secondZoneIndex] == null)
+            {
+                secondZoneIndex = Random.Range(0, _damageZones.Length);
+            }
+
+            // Show the indicator for the second zone
+            ZoneIndicator secondZone = _damageZones[secondZoneIndex].GetComponent<ZoneIndicator>();
+            secondZone.SetIndicatorActive(true);
+        }
+
         // Wait for a short duration to give the player a warning
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(_warningWaitTime);
 
-        // Delay the damage application to sync with the animation
-        yield return new WaitForSeconds(0.5f);
-
+        // Deactivate indicators
         zone.SetIndicatorActive(false);
+        if (secondZoneIndex != -1)
+        {
+            ZoneIndicator secondZone = _damageZones[secondZoneIndex].GetComponent<ZoneIndicator>();
+            secondZone.SetIndicatorActive(false);
+        }
 
         // Activate zones and apply damage
         ActivateZones(false);
         ApplyGroundPoundDamage(zoneIndex);
+        if (secondZoneIndex != -1)
+        {
+            ApplyGroundPoundDamage(secondZoneIndex);
+        }
     }
 
     int DeterminePlayerZone()
