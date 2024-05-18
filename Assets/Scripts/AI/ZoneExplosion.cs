@@ -139,21 +139,16 @@ public class ZoneExplosion : MonoBehaviour
             startPosition.y = 0;
 
             float distanceToCenter = Vector3.Distance(hitPosition, startPosition);
+            distanceToCenter = Mathf.RoundToInt(distanceToCenter);
 
             // Apply damage only if the target is within the selected zone's radius and outside the inner zone
             if (distanceToCenter <= selectedZoneRadius && distanceToCenter > innerZoneRadius)
             {
-                Debug.Log($"{hitCollider.gameObject.name}: distanceToCenter: {distanceToCenter} | selectedZoneRadius: {selectedZoneRadius} | innerZoneRadius: {innerZoneRadius}");
-
                 HealthComponent targetHealth = hitCollider.GetComponent<HealthComponent>();
                 if (targetHealth != null)
                 {
                     targetHealth.Damage(_damageAmount, this.gameObject);
                 }
-            }
-            else
-            {
-                //Debug.Log($"Distance to Center: {distanceToCenter}");
             }
         }
     }
