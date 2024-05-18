@@ -12,6 +12,7 @@ public enum AttackType
     OneShotCoverAttack,
     SpiralShooting,
     SpinningLaser,
+    BulletShower,
 }
 
 public enum AIState
@@ -21,6 +22,7 @@ public enum AIState
 }
 
 [RequireComponent(typeof(SpiralShooter))]
+[RequireComponent(typeof(BulletShower))]
 
 public class AIController : MonoBehaviour
 {
@@ -30,6 +32,7 @@ public class AIController : MonoBehaviour
     private Groundpound _groundpound;
     private OneShotCoverAttack _oneShotCoverAttack;
     private SpiralShooter _spiralShooter;
+    private BulletShower _bulletShower;
     private SpinningLasers _spinningLasers;
 
     private AIState _currentState = AIState.Idle;
@@ -41,6 +44,7 @@ public class AIController : MonoBehaviour
         _oneShotCoverAttack = GetComponent<OneShotCoverAttack>();
         _spiralShooter = GetComponent<SpiralShooter>();
         _spinningLasers = GetComponent<SpinningLasers>();
+        _bulletShower = GetComponent<BulletShower>();
 
         // Start the AI behavior coroutine
         StartCoroutine(AIBehaviorRoutine());
@@ -88,29 +92,30 @@ public class AIController : MonoBehaviour
 
         _currentState = AIState.Attacking;
 
-        StartCoroutine(SpiralShootingSequence());
+        //Execute the chosen attack
+        switch (chosenAttack)
+        {
+            case AttackType.GroundPound:
+                StartCoroutine(GroundPoundSequence());
+                break;
+            case AttackType.ZoneExplosion:
+                StartCoroutine(ZoneExplosionSequence());
+                break;
+            case AttackType.OneShotCoverAttack:
+                StartCoroutine(OneShotSequence());
+                break;
+            case AttackType.SpiralShooting:
+                StartCoroutine(SpiralShootingSequence());
+                break;
+            case AttackType.SpinningLaser:
+                StartCoroutine(LaserSpinningSequence());
+                break;
+            case AttackType.BulletShower:
+                StartCoroutine(BulletShowerSequence());
+                break;
 
-        ////Execute the chosen attack
-        //switch (chosenAttack)
-        //{
-        //    case AttackType.GroundPound:
-        //        StartCoroutine(GroundPoundSequence());
-        //        break;
-        //    case AttackType.ZoneExplosion:
-        //        StartCoroutine(ZoneExplosionSequence());
-        //        break;
-        //    case AttackType.OneShotCoverAttack:
-        //        StartCoroutine(OneShotSequence());
-        //        break;
-        //    case AttackType.SpiralShooting:
-        //        StartCoroutine(SpiralShootingSequence());
-        //        break;
-        //    case AttackType.SpinningLaser:
-        //        StartCoroutine(LaserSpinningSequence());
-        //        break;
-
-        //        //Add other cases for different attacks
-        //}
+                //Add other cases for different attacks
+        }
     }
     IEnumerator GroundPoundSequence()
     {
@@ -162,6 +167,17 @@ public class AIController : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
         _spinningLasers.StartSpinningLasers();
+
+        // Restart the AI behavior routine
+        yield return null;
+    }
+
+    IEnumerator BulletShowerSequence()
+    {
+        //TODO::_animator.SetTrigger("GroundPound");
+
+        yield return new WaitForSeconds(0.5f);
+        _bulletShower.StartSpinning();
 
         // Restart the AI behavior routine
         yield return null;
