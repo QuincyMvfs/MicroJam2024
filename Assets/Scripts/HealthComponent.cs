@@ -12,6 +12,16 @@ public class HealthComponent : MonoBehaviour
 
     private float _currentHealth;
 
+    private void Awake()
+    {
+        _currentHealth = MaxHealth;
+    }
+
+    private void Start()
+    {
+        _currentHealth = MaxHealth;
+    }
+
     public void Damage(float amount, GameObject Instigator)
     {
         _currentHealth -= amount;
@@ -19,7 +29,10 @@ public class HealthComponent : MonoBehaviour
         if (_currentHealth == 0)
         {
             OnDeath.Invoke();
+            Debug.Log($"{gameObject.name}: Dead");
         }
+
+        Debug.Log($"{gameObject.name}: Current Health: {_currentHealth}");
     }
 
     public void Heal(float amount, GameObject Healer)

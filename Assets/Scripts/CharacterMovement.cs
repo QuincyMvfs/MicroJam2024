@@ -10,7 +10,6 @@ using UnityEngine.InputSystem;
 public class CharacterMovement : MonoBehaviour
 {
     [Header("Components")]
-    [SerializeField] private Rigidbody _rb;
     [SerializeField] private GameObject LookTarget;
 
     [Header("Speeds")]
@@ -21,9 +20,18 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float _stepDelay = 0.05f; 
     [SerializeField] private int _maxSteps = 4;
 
+    public int CurrentStep => _currentStep;
+
+    private Rigidbody _rb;
+
     private float _nextStepTime = 0;
     private int _currentStep = 0;
     protected IEnumerator _currentState;
+
+    private void Awake()
+    {
+        _rb = GetComponent<Rigidbody>();
+    }
 
     // Update is called once per frame
     void Update()

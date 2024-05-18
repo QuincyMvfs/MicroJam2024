@@ -252,7 +252,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.726, y: 0.726, z: 0.726}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1476535013286017017}
   m_Father: {fileID: 7177354424623573616}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5285939239595659705
@@ -320,6 +321,7 @@ GameObject:
   - component: {fileID: 3781007198404292579}
   - component: {fileID: 1846831811615416204}
   - component: {fileID: 4780969592950662986}
+  - component: {fileID: 6929290131123774577}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -409,8 +411,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e294d2fd95a60944f9373c002989fa02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 7086638942863533243}
-  _characterMovement: {fileID: 1846831811615416204}
 --- !u!54 &3781007198404292579
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -450,7 +450,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eccd5ad976fff7a4f80cd65f6d796863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rb: {fileID: 3781007198404292579}
   LookTarget: {fileID: 0}
   _xMovementSpeed: 1
   _stepSpeed: 100
@@ -472,3 +471,50 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6929290131123774577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2741137781677840711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2322b96c355901e458c61370006753df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ProjectileSpeed: 10
+  ProjectileDamage: 10
+  _projectile: {fileID: 4945426226323728899, guid: 30746921994ed134e8ae281b16b5fed7, type: 3}
+  _muzzleTransform: {fileID: 1476535013286017017}
+--- !u!1 &8323722459392702778
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1476535013286017017}
+  m_Layer: 0
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1476535013286017017
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8323722459392702778}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5986849367083559039}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

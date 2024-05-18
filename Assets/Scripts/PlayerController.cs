@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(CharacterMovement))]
+
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private Camera _camera;
-    [SerializeField] private CharacterMovement _characterMovement;
+    private CharacterMovement _characterMovement;
 
     private bool _isMovingForward = false;
     private bool _isMovingBackward = false;
@@ -15,22 +16,10 @@ public class PlayerController : MonoBehaviour
     private MovementDirections _currentDirection = MovementDirections.Stop;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        _characterMovement = GetComponent<CharacterMovement>();
     }
-
-    //private void OnMove()
-    //{
-    //    Vector3 MovementDesintation = Vector3.zero;
-    //    Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-    //    if (Physics.Raycast(ray, out RaycastHit hitInfo))
-    //    {
-    //        MovementDesintation = hitInfo.point;
-    //    }
-
-    //    Debug.Log("Move to " + MovementDesintation);
-    //}
 
     private void OnMoveForward()
     {
