@@ -27,16 +27,16 @@ public class GroundPoundAi : MonoBehaviour
         }
 
         // Show the indicator for the selected zone
-        //zoneIndicator.ShowIndicator(zoneIndex);
+        ZoneIndicator zone = _damageZones[zoneIndex].GetComponent<ZoneIndicator>();
+        zone.SetIndicatorActive(true);
 
         // Wait for a short duration to give the player a warning
         yield return new WaitForSeconds(1.0f);
 
-        // Hide all indicators
-        //zoneIndicator.HideAllIndicators();
-
         // Delay the damage application to sync with the animation
-        yield return new WaitForSeconds(0.5f); // Adjust the delay to match the animation
+        yield return new WaitForSeconds(0.5f);
+
+        zone.SetIndicatorActive(false);
 
         // Apply damage
         ApplyGroundPoundDamage(zoneIndex);
