@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class GroundPoundAi : MonoBehaviour
+public class ZoneExplosion : MonoBehaviour
 {
     [SerializeField] private GameObject[] _damageZones;
     [SerializeField] private float _damageAmount = 10.0f;
@@ -11,7 +11,21 @@ public class GroundPoundAi : MonoBehaviour
 
     public void PerformGroundPound()
     {
+        ActivateZones(true);
         StartCoroutine(GroundPoundSequence());
+    }
+
+    void ActivateZones(bool activate)
+    {
+        // Activate all children of each damage zone
+        foreach (GameObject zone in _damageZones)
+        {
+            for (int i = 0; i < zone.transform.childCount; i++)
+            {
+                Transform child = zone.transform.GetChild(i);
+                child.gameObject.SetActive(activate);
+            }
+        }
     }
 
     IEnumerator GroundPoundSequence()
@@ -22,7 +36,6 @@ public class GroundPoundAi : MonoBehaviour
         // Check if the selected zone is valid
         if (_damageZones[zoneIndex] == null)
         {
-            Debug.LogError($"Damage zone at index {zoneIndex} is not assigned in GroundPoundAI");
             yield break;
         }
 
@@ -38,7 +51,8 @@ public class GroundPoundAi : MonoBehaviour
 
         zone.SetIndicatorActive(false);
 
-        // Apply damage
+        // Activate zones and apply damage
+        ActivateZones(false);
         ApplyGroundPoundDamage(zoneIndex);
     }
 
@@ -63,11 +77,7 @@ public class GroundPoundAi : MonoBehaviour
     void ApplyGroundPoundDamage(int zoneIndex)
     {
         SphereCollider selectedZoneCollider = _damageZones[zoneIndex].GetComponent<SphereCollider>();
-        if (selectedZoneCollider == null)
-        {
-            Debug.LogWarning("Selected zone does not have a SphereCollider");
-            return;
-        }
+        if (selectedZoneCollider == null) return;
 
         float selectedZoneRadius = selectedZoneCollider.radius;
         float innerZoneRadius = zoneIndex > 0 ? _damageZones[zoneIndex - 1].GetComponent<SphereCollider>().radius : 0;

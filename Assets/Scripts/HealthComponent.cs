@@ -6,6 +6,8 @@ using UnityEngine.Events;
 public class HealthComponent : MonoBehaviour
 {
     [SerializeField] public float MaxHealth = 100.0f;
+
+    private bool _isDead = false;
     public UnityEvent OnDeath;
 
     public float CurrentHealth => _currentHealth;
@@ -24,10 +26,13 @@ public class HealthComponent : MonoBehaviour
 
     public void Damage(float amount, GameObject Instigator)
     {
+        if(_isDead) return;
+
         _currentHealth -= amount;
         Mathf.Clamp(_currentHealth, 0, MaxHealth);
         if (_currentHealth == 0)
         {
+            _isDead = true;
             OnDeath.Invoke();
            // Debug.Log($"{gameObject.name}: Dead");
         }

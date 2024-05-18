@@ -27,7 +27,7 @@ public class ZoneIndicator : MonoBehaviour
 
         if (collider is SphereCollider sphereCollider)
         {
-            Gizmos.DrawWireSphere(sphereCollider.bounds.center, sphereCollider.radius);
+            //Gizmos.DrawWireSphere(sphereCollider.bounds.center, sphereCollider.radius);
         }
     }
 }

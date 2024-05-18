@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public enum AttackType
 {
     GroundPound,
+    ZoneExplosion
 }
 
 public enum AIState
@@ -18,20 +20,14 @@ public enum AIState
 public class AIController : MonoBehaviour
 {
     [SerializeField] private float _attackCooldown = 3.0f;
-    [SerializeField] private GroundPoundAi _groundPoundAi;
+    [SerializeField] private ZoneExplosion _zoneExplosion;
+    [SerializeField] private Groundpound _groundpound;
 
     private AIState _currentState = AIState.Idle;
     private float _nextAttackTime;
 
     void Start()
     {
-        _groundPoundAi = GetComponent<GroundPoundAi>();
-
-        //if (animator == null)
-        //{
-        //    animator = GetComponent<Animator>();
-        //}
-
         // Start the AI behavior coroutine
         StartCoroutine(AIBehaviorRoutine());
     }
@@ -62,6 +58,15 @@ public class AIController : MonoBehaviour
         DecideAttack();
     }
 
+    IEnumerator AttackingRoutine()
+    {
+        // Wait until the current attack is finished
+        while (_currentState == AIState.Attacking)
+        {
+            yield return null;
+        }
+    }
+
     void DecideAttack()
     {
         // Decide which attack to use
@@ -75,18 +80,19 @@ public class AIController : MonoBehaviour
             case AttackType.GroundPound:
                 StartCoroutine(GroundPoundSequence());
                 break;
+            case AttackType.ZoneExplosion:
+                StartCoroutine(ZoneExplosionSequence());
+                break;
                 // Add other cases for different attacks
         }
     }
 
-    IEnumerator GroundPoundSequence()
+    IEnumerator ZoneExplosionSequence()
     {
         //TODO::_animator.SetTrigger("GroundPound");
 
-        // Wait for the animation to start
-        yield return new WaitForSeconds(0.5f); // Adjust timing to match animation
-
-        _groundPoundAi.PerformGroundPound();
+        yield return new WaitForSeconds(0.5f);
+        _zoneExplosion.PerformGroundPound();
 
         // Return to Idle state after attack
         _currentState = AIState.Idle;
@@ -95,15 +101,19 @@ public class AIController : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator AttackingRoutine()
+    IEnumerator GroundPoundSequence()
     {
-        // Here you can add any additional logic for the attacking state
-        // For now, we just wait until the current attack finishes
+        //TODO::_animator.SetTrigger("GroundPound");
 
-        // Wait until the current attack is finished
-        while (_currentState == AIState.Attacking)
-        {
-            yield return null;
-        }
+        yield return new WaitForSeconds(0.5f); 
+        _groundpound.StartExplosion();
+
+        // Return to Idle state after attack
+        _currentState = AIState.Idle;
+
+        // Restart the AI behavior routine
+        yield return null;
     }
+
+
 }
