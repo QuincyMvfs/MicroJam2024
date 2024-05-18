@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(CharacterMovement))]
+[RequireComponent(typeof(Camera))]
+
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private Camera _camera;
-    [SerializeField] private CharacterMovement _characterMovement;
+    private Camera _camera;
+    private CharacterMovement _characterMovement;
 
     private bool _isMovingForward = false;
     private bool _isMovingBackward = false;
@@ -15,9 +18,10 @@ public class PlayerController : MonoBehaviour
     private MovementDirections _currentDirection = MovementDirections.Stop;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        _characterMovement = GetComponent<CharacterMovement>();
+        _camera = GetComponent<Camera>();
     }
 
     //private void OnMove()
@@ -34,34 +38,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnMoveForward()
     {
-        _isMovingForward = !_isMovingForward;
-        if (_isMovingForward)
-        {
-            _currentDirection = MovementDirections.Forward;
-            Debug.Log("Move Forward");
-            _characterMovement.ChangeMovementState(MovementDirections.Forward);
-        }
-        else if (_currentDirection == MovementDirections.Forward)
-        {
-            Debug.Log("Stop");
-            _characterMovement.ChangeMovementState(MovementDirections.Stop);
-        }
+        _characterMovement.ChangeMovementState(MovementDirections.Forward);
     }
 
     private void OnMoveBackward()
     {
-        _isMovingBackward = !_isMovingBackward;
-        if (_isMovingBackward)
-        {
-            _currentDirection = MovementDirections.Backward;
-            Debug.Log("Move Backward");
-            _characterMovement.ChangeMovementState(MovementDirections.Backward);
-        }
-        else if (_currentDirection == MovementDirections.Backward)
-        {
-            Debug.Log("Stop");
-            _characterMovement.ChangeMovementState(MovementDirections.Stop);
-        }
+        _characterMovement.ChangeMovementState(MovementDirections.Backward);
     }
 
     private void OnMoveLeft()

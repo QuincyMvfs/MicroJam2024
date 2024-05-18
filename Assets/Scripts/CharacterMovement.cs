@@ -9,21 +9,26 @@ using UnityEngine.InputSystem;
 
 public class CharacterMovement : MonoBehaviour
 {
-    [SerializeField] private Rigidbody _rb;
+    [Header("Components")]
     [SerializeField] private GameObject LookTarget;
 
+    [Header("Speeds")]
     [SerializeField] private float _xMovementSpeed = 5.0f;
-    [SerializeField] private float _stepSpeed = 100.0f; 
-    [SerializeField] private float _stepDelay = 0.2f; 
+    [SerializeField] private float _stepSpeed = 100.0f;
+
+    [Header("Step Details")]
+    [SerializeField] private float _stepDelay = 0.05f; 
     [SerializeField] private int _maxSteps = 4;
 
+    private Rigidbody _rb;
+
+    private float _nextStepTime = 0;
     private int _currentStep = 0;
     protected IEnumerator _currentState;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        _rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -49,10 +54,10 @@ public class CharacterMovement : MonoBehaviour
         switch (Direction)
         {
             case MovementDirections.Forward:
-                ChangeState(MoveForward());
+                MoveForward();
                 break;
             case MovementDirections.Backward:
-                ChangeState(MoveBackward());
+                MoveBackward();
                 break;
             case MovementDirections.Left:
                 ChangeState(MoveLeft());
@@ -66,33 +71,37 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
-    protected IEnumerator MoveForward()
+    protected void MoveForward()
     {
-        _currentStep++;
         if (_currentStep >= _maxSteps)
         {
             _currentStep = _maxSteps;
-            yield break;
         }
         else
         {
-            this.transform.Translate(new Vector3(0, 0, (_stepSpeed * Time.fixedDeltaTime)), Space.Self);
-            yield return new WaitForSeconds(_stepDelay);
+            if (Time.time > _nextStepTime)
+            {
+                _currentStep++;
+                _nextStepTime = Time.time + _stepDelay;
+                this.transform.Translate(new Vector3(0, 0, (_stepSpeed * Time.fixedDeltaTime)), Space.Self);
+            }
         }
     }
 
-    protected IEnumerator MoveBackward()
+    protected void MoveBackward()
     {
-        _currentStep--;
         if (_currentStep <= 0)
         {
             _currentStep = 0;
-            yield break;
         }
         else
         {
-            this.transform.Translate(new Vector3(0, 0, -(_stepSpeed * Time.fixedDeltaTime)), Space.Self);
-            yield return new WaitForSeconds(_stepDelay);
+            if (Time.time > _nextStepTime)
+            {
+                _currentStep--;
+                _nextStepTime = Time.time + _stepDelay;
+                this.transform.Translate(new Vector3(0, 0, -(_stepSpeed * Time.fixedDeltaTime)), Space.Self);
+            }
         }
     }
 
