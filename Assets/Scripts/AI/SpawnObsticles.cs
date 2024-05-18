@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 
 public class SpawnObsticles : MonoBehaviour
 {
@@ -16,9 +17,11 @@ public class SpawnObsticles : MonoBehaviour
     private Vector3 _leftStartPosition;
     private Vector3 _rightStartPosition;
     private bool _isMoving = false;
+    private AIController _controller;
 
     private void Awake()
     {
+        _controller = GetComponent<AIController>();
         PlayerController Player = FindObjectOfType<PlayerController>();
         if (Player != null)
         {
@@ -67,7 +70,6 @@ public class SpawnObsticles : MonoBehaviour
         {
             _obsticles[0].transform.position = Vector3.MoveTowards(_obsticles[0].transform.position, _leftStartPosition, _obsticleMoveSpeed * Time.deltaTime);
             _obsticles[1].transform.position = Vector3.MoveTowards(_obsticles[1].transform.position, _rightStartPosition, _obsticleMoveSpeed * Time.deltaTime);
-            Debug.Log("moving");
             yield return null;
         }
 
@@ -84,12 +86,12 @@ public class SpawnObsticles : MonoBehaviour
         {
             _obsticles[0].transform.position = Vector3.MoveTowards(_obsticles[0].transform.position, leftEndPosition, _obsticleMoveSpeed * Time.deltaTime);
             _obsticles[1].transform.position = Vector3.MoveTowards(_obsticles[1].transform.position, rightEndPosition, _obsticleMoveSpeed * Time.deltaTime);
-            Debug.Log("done");
             yield return null;
         }
 
         Destroy(_obsticles[0]);
         Destroy(_obsticles[1]);
         _isMoving = false;
+        _controller.ResetToIdle();
     }
 }
