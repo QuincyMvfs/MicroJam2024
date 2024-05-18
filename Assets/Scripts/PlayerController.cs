@@ -34,34 +34,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnMoveForward()
     {
-        _isMovingForward = !_isMovingForward;
-        if (_isMovingForward)
-        {
-            _currentDirection = MovementDirections.Forward;
-            Debug.Log("Move Forward");
-            _characterMovement.ChangeMovementState(MovementDirections.Forward);
-        }
-        else if (_currentDirection == MovementDirections.Forward)
-        {
-            Debug.Log("Stop");
-            _characterMovement.ChangeMovementState(MovementDirections.Stop);
-        }
+        _characterMovement.ChangeMovementState(MovementDirections.Forward);
     }
 
     private void OnMoveBackward()
     {
-        _isMovingBackward = !_isMovingBackward;
-        if (_isMovingBackward)
-        {
-            _currentDirection = MovementDirections.Backward;
-            Debug.Log("Move Backward");
-            _characterMovement.ChangeMovementState(MovementDirections.Backward);
-        }
-        else if (_currentDirection == MovementDirections.Backward)
-        {
-            Debug.Log("Stop");
-            _characterMovement.ChangeMovementState(MovementDirections.Stop);
-        }
+        _characterMovement.ChangeMovementState(MovementDirections.Backward);
     }
 
     private void OnMoveLeft()
