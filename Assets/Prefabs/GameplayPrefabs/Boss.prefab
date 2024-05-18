@@ -525,6 +525,7 @@ GameObject:
   - component: {fileID: 3724876870433978485}
   - component: {fileID: 8716252965809115624}
   - component: {fileID: 4828964054577102543}
+  - component: {fileID: 4302317726454319616}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -722,6 +723,7 @@ MonoBehaviour:
   _attackDuration: 9
   _fireDelay: 0.05
   _projectileSpeed: 500
+  _projectileLifetime: 3
   _damage: 10
   _totalProjectilePerFire: 8
   _projectile: {fileID: 4945426226323728899, guid: b5af7ddaf24a33a4b984e8e10ec97029, type: 3}
@@ -760,10 +762,27 @@ MonoBehaviour:
   _attackDuration: 9
   _fireDelay: 0.3
   _projectileSpeed: 600
+  _projectileLifetime: 3
   _damage: 10
-  _totalProjectilePerFire: 12
+  _totalProjectilePerFire: 30
   _projectile: {fileID: 4945426226323728899, guid: b5af7ddaf24a33a4b984e8e10ec97029, type: 3}
   _muzzleTransform: {fileID: 9223075895793747309}
+--- !u!114 &4302317726454319616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2549468043866479856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 936cf4a5cfd0a7e4cb99f12933698f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _obsticleToSpawn: {fileID: 246169677087326487, guid: 3c2a72585c379ef44acfcb109cae0767, type: 3}
+  _obsticleLifetime: 10
+  _angleDistanceFromPlayer: 45
+  _distanceFromBoss: 22
 --- !u!1 &3400976318994639737
 GameObject:
   m_ObjectHideFlags: 0
