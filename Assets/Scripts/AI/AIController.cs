@@ -92,32 +92,30 @@ public class AIController : MonoBehaviour
 
         _currentState = AIState.Attacking;
 
-        StartCoroutine(BulletShowerSequence());
-
         //Execute the chosen attack
-        //switch (chosenAttack)
-        //{
-        //    case AttackType.GroundPound:
-        //        StartCoroutine(GroundPoundSequence());
-        //        break;
-        //    case AttackType.ZoneExplosion:
-        //        StartCoroutine(ZoneExplosionSequence());
-        //        break;
-        //    case AttackType.OneShotCoverAttack:
-        //        StartCoroutine(OneShotSequence());
-        //        break;
-        //    case AttackType.SpiralShooting:
-        //        StartCoroutine(SpiralShootingSequence());
-        //        break;
-        //    case AttackType.SpinningLaser:
-        //        StartCoroutine(LaserSpinningSequence());
-        //        break;
-        //    case AttackType.BulletShower:
-        //        StartCoroutine(BulletShowerSequence());
-        //        break;
+        switch (chosenAttack)
+        {
+            case AttackType.GroundPound:
+                StartCoroutine(GroundPoundSequence());
+                break;
+            case AttackType.ZoneExplosion:
+                StartCoroutine(ZoneExplosionSequence());
+                break;
+            case AttackType.OneShotCoverAttack:
+                StartCoroutine(OneShotSequence());
+                break;
+            case AttackType.SpiralShooting:
+                StartCoroutine(SpiralShootingSequence());
+                break;
+            case AttackType.SpinningLaser:
+                StartCoroutine(LaserSpinningSequence());
+                break;
+            case AttackType.BulletShower:
+                StartCoroutine(BulletShowerSequence());
+                break;
 
-        //        //Add other cases for different attacks
-        //}
+                //Add other cases for different attacks
+        }
     }
     IEnumerator GroundPoundSequence()
     {
