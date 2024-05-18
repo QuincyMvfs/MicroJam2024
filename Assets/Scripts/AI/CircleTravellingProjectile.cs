@@ -49,16 +49,14 @@ public class CircleTravellingProjectile : MonoBehaviour
         StartCoroutine(LaunchProjectileForwards(spawnedProjectile, randomizedLane));
         //destroy first projectile by setting lifetime and spawn a new one that travels in a circle
         StartCoroutine(DelaySecondProjectile());
-        //Projectile secondSpawnedProj = Instantiate,
-        //rotate 90 degrees when arriving at lane
-        //travel along circle path
-        //destroy after x time
     }  
     private IEnumerator LaunchProjectileForwards(Projectile projectile, Transform destination)
     {
+        Transform startPoint = transform;
         while (projectile.transform.position != destination.position)
         {
-            projectile.transform.position = Vector3.Lerp(transform.position, destination.position, _lifetime);
+            float t = projectile.transform.position.z / destination.position.z;
+            projectile.transform.position = Vector3.Lerp(startPoint.position, destination.position, t);
         }
         yield return null;
     }

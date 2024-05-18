@@ -91,8 +91,7 @@ public class AIController : MonoBehaviour
     void DecideAttack()
     {
         // Decide which attack to use
-        //AttackType chosenAttack = (AttackType)Random.Range(0, System.Enum.GetValues(typeof(AttackType)).Length);
-        AttackType chosenAttack = AttackType.CircleTravellingProjectile;
+        AttackType chosenAttack = (AttackType)Random.Range(0, System.Enum.GetValues(typeof(AttackType)).Length);
         _currentState = AIState.Attacking;
 
         //Execute the chosen attack
