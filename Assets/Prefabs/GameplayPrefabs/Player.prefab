@@ -453,7 +453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lookTarget: {fileID: 0}
   _playerMesh: {fileID: 5986849367083559039}
-  _xMovementSpeed: 3
+  _xMovementSpeed: 5
   _stepSpeed: 2.5
   _stepDelay: 0.03
   _maxSteps: 2
