@@ -185,7 +185,7 @@ Material:
     - _EnableFogOnTransparent: 1
     - _EnableGeometricSpecularAA: 0
     - _EnergyConservingSpecularColor: 1
-    - _FadeWidth: 0.05
+    - _FadeWidth: 0.03
     - _FillAmount: 0.094
     - _GlowIntensity: 11.7
     - _HeightAmplitude: 0.02

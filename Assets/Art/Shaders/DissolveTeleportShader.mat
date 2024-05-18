@@ -23,7 +23,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TeleportShader
+  m_Name: DissolveTeleportShader
   m_Shader: {fileID: 4800000, guid: 3929c3d41842df54ba16d0ac505a1561, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
