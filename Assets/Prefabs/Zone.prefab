@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6141090733514945843}
   - component: {fileID: 3207050916821989285}
   - component: {fileID: 2929849431189598915}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Zone
-  m_TagString: Untagged
+  m_TagString: Zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,9 +81,9 @@ GameObject:
   - component: {fileID: 8999691062280331476}
   - component: {fileID: 4001302498089685585}
   - component: {fileID: 4876637895805876341}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -38,12 +38,10 @@ public class PlayerController : MonoBehaviour
         if (_isMovingLeft)
         {
             _currentDirection = MovementDirections.Left;
-            Debug.Log("Move Left");
             _characterMovement.ChangeMovementState(MovementDirections.Left);
         }
         else if (_currentDirection == MovementDirections.Left)
         {
-            Debug.Log("Stop");
             _characterMovement.ChangeMovementState(MovementDirections.Stop);
         }
     }
@@ -54,12 +52,10 @@ public class PlayerController : MonoBehaviour
         if (_isMovingRight)
         {
             _currentDirection = MovementDirections.Right;
-            Debug.Log("Move Right");
             _characterMovement.ChangeMovementState(MovementDirections.Right);
         }
         else if (_currentDirection == MovementDirections.Right)
         {
-            Debug.Log("Stop");
             _characterMovement.ChangeMovementState(MovementDirections.Stop);
         }
     }

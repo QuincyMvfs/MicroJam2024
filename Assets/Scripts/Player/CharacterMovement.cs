@@ -10,7 +10,8 @@ using UnityEngine.InputSystem;
 public class CharacterMovement : MonoBehaviour
 {
     [Header("Components")]
-    [SerializeField] private GameObject LookTarget;
+    [SerializeField] private GameObject _lookTarget;
+    [SerializeField] private Transform _playerMesh;
 
     [Header("Speeds")]
     [SerializeField] private float _xMovementSpeed = 5.0f;
@@ -19,6 +20,7 @@ public class CharacterMovement : MonoBehaviour
     [Header("Step Details")]
     [SerializeField] private float _stepDelay = 0.05f; 
     [SerializeField] private int _maxSteps = 4;
+    [SerializeField] private LayerMask _occlusionMask;
 
     public int CurrentStep => _currentStep;
 
@@ -36,7 +38,7 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 LookPosition = LookTarget.transform.position - transform.position;
+        Vector3 LookPosition = _lookTarget.transform.position - transform.position;
         LookPosition.y = 0;
         Quaternion LookRotation = Quaternion.LookRotation(LookPosition);
         transform.rotation = LookRotation;
@@ -83,9 +85,20 @@ public class CharacterMovement : MonoBehaviour
         {
             if (Time.time > _nextStepTime)
             {
-                _currentStep++;
-                _nextStepTime = Time.time + _stepDelay;
-                this.transform.Translate(new Vector3(0, 0, (_stepSpeed * Time.fixedDeltaTime)), Space.Self);
+                Ray obstacleRay = new Ray();
+                obstacleRay.origin = _playerMesh.transform.position;
+                obstacleRay.direction = _playerMesh.transform.forward;
+                if (!Physics.Raycast(obstacleRay, out RaycastHit hitInfo, 2, _occlusionMask))
+                {
+                    _currentStep++;
+                    _nextStepTime = Time.time + _stepDelay;
+                    this.transform.Translate(new Vector3(0, 0, (_stepSpeed * Time.fixedDeltaTime)), Space.Self);
+                }
+                else
+                {
+                    Debug.Log(hitInfo.collider.gameObject.name);
+                    Debug.DrawRay(obstacleRay.origin, obstacleRay.direction, Color.red, 5.0f);
+                }
             }
         }
     }
@@ -100,9 +113,20 @@ public class CharacterMovement : MonoBehaviour
         {
             if (Time.time > _nextStepTime)
             {
-                _currentStep--;
-                _nextStepTime = Time.time + _stepDelay;
-                this.transform.Translate(new Vector3(0, 0, -(_stepSpeed * Time.fixedDeltaTime)), Space.Self);
+                Ray obstacleRay = new Ray();
+                obstacleRay.origin = _playerMesh.transform.position;
+                obstacleRay.direction = -_playerMesh.transform.forward;
+                if (!Physics.Raycast(obstacleRay, out RaycastHit hitInfo, 2, _occlusionMask))
+                {
+                    _currentStep--;
+                    _nextStepTime = Time.time + _stepDelay;
+                    this.transform.Translate(new Vector3(0, 0, -(_stepSpeed * Time.fixedDeltaTime)), Space.Self);
+                }
+                else
+                {
+                    Debug.Log(hitInfo.collider.gameObject.name);
+                    Debug.DrawRay(obstacleRay.origin, obstacleRay.direction, Color.red, 5.0f);
+                }
             }
         }
     }
@@ -111,7 +135,14 @@ public class CharacterMovement : MonoBehaviour
     {
         while (true)
         {
-            this.transform.Translate(new Vector3(-(_xMovementSpeed * Time.fixedDeltaTime), 0, 0), Space.Self);
+            Ray obstacleRay = new Ray();
+            obstacleRay.origin = _playerMesh.transform.position;
+            obstacleRay.direction = -_playerMesh.transform.right;
+            if (!Physics.Raycast(obstacleRay, out RaycastHit hitInfo, 1f, _occlusionMask))
+            {
+                this.transform.Translate(new Vector3(-(_xMovementSpeed * Time.fixedDeltaTime), 0, 0), Space.Self);
+            }
+
             yield return null;
         }
     }
@@ -120,7 +151,14 @@ public class CharacterMovement : MonoBehaviour
     {
         while (true)
         {
-            this.transform.Translate(new Vector3((_xMovementSpeed * Time.fixedDeltaTime), 0, 0), Space.Self);
+            Ray obstacleRay = new Ray();
+            obstacleRay.origin = _playerMesh.transform.position;
+            obstacleRay.direction = _playerMesh.transform.right;
+            if (!Physics.Raycast(obstacleRay, out RaycastHit hitInfo, 1f, _occlusionMask))
+            {
+                this.transform.Translate(new Vector3((_xMovementSpeed * Time.fixedDeltaTime), 0, 0), Space.Self);
+            }
+
             yield return null;
         }
     }
