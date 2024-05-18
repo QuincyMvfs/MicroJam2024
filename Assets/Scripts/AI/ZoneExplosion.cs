@@ -102,7 +102,6 @@ public class ZoneExplosion : MonoBehaviour
             SphereCollider zoneCollider = _damageZones[i].GetComponent<SphereCollider>();
             if (distanceToCenter <= zoneCollider.radius)
             {
-                Debug.Log(_damageZones[i]);
                 return i;
             }
         }
