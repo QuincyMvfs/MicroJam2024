@@ -21,7 +21,6 @@ public class PlayerWeapon : MonoBehaviour
     private void Start()
     {
         StartCoroutine(ShootLoop());
-        Destroy(gameObject, 10.0f);
     }
 
     private IEnumerator ShootLoop()

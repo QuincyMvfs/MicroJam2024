@@ -84,13 +84,13 @@ public class AIController : MonoBehaviour
         switch (chosenAttack)
         {
             case AttackType.GroundPound:
-                StartCoroutine(GroundPoundSequence());
+                StartCoroutine(ZoneExplosionSequence());
                 break;
             case AttackType.ZoneExplosion:
                 StartCoroutine(ZoneExplosionSequence());
                 break;
             case AttackType.OneShotCoverAttack:
-                StartCoroutine(OneShotSequence());
+                StartCoroutine(ZoneExplosionSequence());
                 break;
 
                 // Add other cases for different attacks

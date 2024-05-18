@@ -7,13 +7,13 @@ public class ZoneExplosion : MonoBehaviour
 {
     [SerializeField] private GameObject[] _damageZones;
     [SerializeField] private float _damageAmount = 10.0f;
-    [SerializeField] private Transform _playerTransform;
     [SerializeField] private float _warningWaitTime = 2f;
 
     [Tooltip("Make 2 zones to apply damage if health below this threshold")]
     [SerializeField] private float _healthThreshold = 50.0f;
 
     private AIController _aiController;
+    private Transform _playerTransform;
 
     private HealthComponent _healthComponent;
 
@@ -21,6 +21,11 @@ public class ZoneExplosion : MonoBehaviour
     {
         _aiController = GetComponent<AIController>();
         _healthComponent = GetComponent<HealthComponent>();
+        PlayerController Player = FindObjectOfType<PlayerController>();
+        if (Player != null)
+        {
+           _playerTransform = Player.gameObject.transform;
+        }
     }
 
     public void PerformGroundPound()
@@ -106,7 +111,7 @@ public class ZoneExplosion : MonoBehaviour
             }
         }
 
-        return -1; 
+        return 1; 
     }
 
     // TODO:: Maybe should trigger from anim notify????????????????
@@ -116,7 +121,11 @@ public class ZoneExplosion : MonoBehaviour
         if (selectedZoneCollider == null) return;
 
         float selectedZoneRadius = selectedZoneCollider.radius;
-        float innerZoneRadius = zoneIndex > 0 ? _damageZones[zoneIndex - 1].GetComponent<SphereCollider>().radius : 0;
+        float innerZoneRadius = 0;
+        if (zoneIndex > 0)
+        {
+            innerZoneRadius = _damageZones[zoneIndex - 1].GetComponent<SphereCollider>().radius;
+        }
 
         Collider[] hitColliders = Physics.OverlapSphere(selectedZoneCollider.bounds.center, selectedZoneRadius);
 
@@ -124,7 +133,13 @@ public class ZoneExplosion : MonoBehaviour
         {
             if (hitCollider.gameObject == this.gameObject) continue;
 
-            float distanceToCenter = Vector3.Distance(hitCollider.transform.position, this.transform.position);
+            Vector3 hitPosition = hitCollider.transform.position;
+            hitPosition.y = 0;
+            Vector3 startPosition = this.transform.position;
+            startPosition.y = 0;
+
+            float distanceToCenter = Vector3.Distance(hitPosition, startPosition);
+            distanceToCenter = Mathf.RoundToInt(distanceToCenter);
 
             // Apply damage only if the target is within the selected zone's radius and outside the inner zone
             if (distanceToCenter <= selectedZoneRadius && distanceToCenter > innerZoneRadius)
