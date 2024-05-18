@@ -89,8 +89,8 @@ public class CharacterMovement : MonoBehaviour
                 Ray obstacleRay = new Ray();
                 obstacleRay.origin = _playerMesh.transform.position;
                 obstacleRay.direction = _playerMesh.transform.forward;
-                if (!Physics.SphereCast(obstacleRay.origin, 1.0f, obstacleRay.direction, 
-                    out RaycastHit hitInfo, _sphereCastRadius, _occlusionMask))
+                if (!Physics.SphereCast(obstacleRay.origin, _sphereCastRadius, obstacleRay.direction, 
+                    out RaycastHit hitInfo, 2.0f, _occlusionMask))
                 {
                     _currentStep++;
                     _nextStepTime = Time.time + _stepDelay;
@@ -118,8 +118,8 @@ public class CharacterMovement : MonoBehaviour
                 Ray obstacleRay = new Ray();
                 obstacleRay.origin = _playerMesh.transform.position;
                 obstacleRay.direction = -_playerMesh.transform.forward;
-                if (!Physics.SphereCast(obstacleRay.origin, 1.0f, obstacleRay.direction, 
-                    out RaycastHit hitInfo, _sphereCastRadius, _occlusionMask))
+                if (!Physics.SphereCast(obstacleRay.origin, _sphereCastRadius, obstacleRay.direction, 
+                    out RaycastHit hitInfo, 2.0f, _occlusionMask))
                 {
                     _currentStep--;
                     _nextStepTime = Time.time + _stepDelay;

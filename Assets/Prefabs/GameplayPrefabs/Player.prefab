@@ -459,7 +459,7 @@ MonoBehaviour:
   _occlusionMask:
     serializedVersion: 2
     m_Bits: 1
-  _sphereCastRadius: 1
+  _sphereCastRadius: 0.5
 --- !u!114 &4780969592950662986
 MonoBehaviour:
   m_ObjectHideFlags: 0
