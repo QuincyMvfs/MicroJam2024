@@ -524,6 +524,7 @@ GameObject:
   - component: {fileID: 1255056152233810750}
   - component: {fileID: 3724876870433978485}
   - component: {fileID: 8716252965809115624}
+  - component: {fileID: 4828964054577102543}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -717,12 +718,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21d9b97c1c501d4dbfdb24e06f546cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spinSpeed: 75
+  _spinSpeed: -45
   _attackDuration: 9
-  _fireDelay: 0.1
-  _projectileSpeed: 1300
+  _fireDelay: 0.05
+  _projectileSpeed: 500
   _damage: 10
-  _totalProjectilePerFire: 4
+  _totalProjectilePerFire: 8
   _projectile: {fileID: 4945426226323728899, guid: b5af7ddaf24a33a4b984e8e10ec97029, type: 3}
   _muzzleTransform: {fileID: 9223075895793747309}
 --- !u!114 &8716252965809115624
@@ -743,6 +744,26 @@ MonoBehaviour:
   _totalLasers: 4
   _muzzleTransform: {fileID: 9223075895793747309}
   _laserPrefab: {fileID: 5174204748100891676, guid: 898cf1847d7b947498e32ede2f5fa10b, type: 3}
+--- !u!114 &4828964054577102543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2549468043866479856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5863830bc3c878a40988a5068546d90b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spinSpeed: -45
+  _attackDuration: 9
+  _fireDelay: 0.3
+  _projectileSpeed: 600
+  _damage: 10
+  _totalProjectilePerFire: 12
+  _projectile: {fileID: 4945426226323728899, guid: b5af7ddaf24a33a4b984e8e10ec97029, type: 3}
+  _muzzleTransform: {fileID: 9223075895793747309}
 --- !u!1 &3400976318994639737
 GameObject:
   m_ObjectHideFlags: 0
