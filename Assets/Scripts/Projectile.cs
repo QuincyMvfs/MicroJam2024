@@ -27,6 +27,7 @@ public class Projectile : MonoBehaviour
         _rb.AddForce(transform.forward * speed);
         _damage = damage;
         _owner = owner;
+        Destroy(gameObject, 10.0f);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -36,7 +37,7 @@ public class Projectile : MonoBehaviour
         if (other.TryGetComponent<HealthComponent>(out HealthComponent health))
         {
             health.Damage(_damage, this.gameObject);
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
 

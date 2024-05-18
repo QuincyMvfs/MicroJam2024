@@ -4,11 +4,11 @@ using UnityEngine;
 public class OneShotCoverAttack : MonoBehaviour
 {
     [SerializeField] private float _damageAmount = 999999.0f;
-    [SerializeField] private Transform _playerTransform;
     [SerializeField] private GameObject _vfxPrefab;
     [SerializeField] private float _warningTimer = 10.0f;
     [SerializeField] private GameObject _shaderObject;
     private AIController _aiController;
+    private Transform _playerTransform;
 
     private Material _shaderMaterial;
 
@@ -24,6 +24,12 @@ public class OneShotCoverAttack : MonoBehaviour
                 // Get the material instance
                 _shaderMaterial = renderer.material;
             }
+        }
+
+        PlayerController Player = FindObjectOfType<PlayerController>();
+        if (Player != null)
+        {
+            _playerTransform = Player.gameObject.transform;
         }
     }
 

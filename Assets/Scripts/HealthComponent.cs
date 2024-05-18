@@ -37,7 +37,9 @@ public class HealthComponent : MonoBehaviour
            // Debug.Log($"{gameObject.name}: Dead");
         }
 
+
         Debug.Log($"{gameObject.name}: Current Health: {_currentHealth}");
+
     }
 
     public void Heal(float amount, GameObject Healer)

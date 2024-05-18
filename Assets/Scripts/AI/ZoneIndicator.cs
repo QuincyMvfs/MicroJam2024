@@ -12,7 +12,6 @@ public class ZoneIndicator : MonoBehaviour
 
     private void Start()
     {
-        _zoneIndicator.SetActive(false);
         _objectRenderer = _zoneIndicator.GetComponent<Renderer>();
     }
 
