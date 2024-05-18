@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     private void OnMoveForward()
     {
         _isMovingForward = !_isMovingForward;
-        if (_isMovingForward && _currentDirection != MovementDirections.Forward)
+        if (_isMovingForward)
         {
             _currentDirection = MovementDirections.Forward;
             Debug.Log("Move Forward");
@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
     private void OnMoveBackward()
     {
         _isMovingBackward = !_isMovingBackward;
-        if (_isMovingBackward && _currentDirection != MovementDirections.Backward)
+        if (_isMovingBackward)
         {
             _currentDirection = MovementDirections.Backward;
             Debug.Log("Move Backward");
@@ -67,9 +67,8 @@ public class PlayerController : MonoBehaviour
     private void OnMoveLeft()
     {
         _isMovingLeft = !_isMovingLeft;
-        Debug.Log(_isMovingLeft);
 
-        if (_isMovingLeft && _currentDirection != MovementDirections.Left)
+        if (_isMovingLeft)
         {
             _currentDirection = MovementDirections.Left;
             Debug.Log("Move Left");
@@ -85,7 +84,7 @@ public class PlayerController : MonoBehaviour
     private void OnMoveRight()
     {
         _isMovingRight = !_isMovingRight;
-        if (_isMovingRight && _currentDirection != MovementDirections.Right)
+        if (_isMovingRight)
         {
             _currentDirection = MovementDirections.Right;
             Debug.Log("Move Right");
