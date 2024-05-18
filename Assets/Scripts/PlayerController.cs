@@ -4,11 +4,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterMovement))]
-[RequireComponent(typeof(Camera))]
 
 public class PlayerController : MonoBehaviour
 {
-    private Camera _camera;
     private CharacterMovement _characterMovement;
 
     private bool _isMovingForward = false;
@@ -21,20 +19,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         _characterMovement = GetComponent<CharacterMovement>();
-        _camera = GetComponent<Camera>();
     }
-
-    //private void OnMove()
-    //{
-    //    Vector3 MovementDesintation = Vector3.zero;
-    //    Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-    //    if (Physics.Raycast(ray, out RaycastHit hitInfo))
-    //    {
-    //        MovementDesintation = hitInfo.point;
-    //    }
-
-    //    Debug.Log("Move to " + MovementDesintation);
-    //}
 
     private void OnMoveForward()
     {

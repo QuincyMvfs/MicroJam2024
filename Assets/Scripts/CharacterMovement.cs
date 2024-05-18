@@ -20,6 +20,8 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float _stepDelay = 0.05f; 
     [SerializeField] private int _maxSteps = 4;
 
+    public int CurrentStep => _currentStep;
+
     private Rigidbody _rb;
 
     private float _nextStepTime = 0;
