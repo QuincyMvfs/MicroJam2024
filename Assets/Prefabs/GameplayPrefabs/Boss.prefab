@@ -13,8 +13,13 @@ GameObject:
   - component: {fileID: 5351681571855490640}
   - component: {fileID: 3586979357876149006}
   - component: {fileID: 8701846043821509508}
+  - component: {fileID: 7890818139333754854}
+  - component: {fileID: 7526051178087447408}
+  - component: {fileID: 1488280603365207919}
+  - component: {fileID: 3928271708101345173}
+  - component: {fileID: 1255056152233810750}
   m_Layer: 0
-  m_Name: Target
+  m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,7 +105,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -124,3 +129,99 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
+--- !u!54 &7890818139333754854
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2549468043866479856}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &7526051178087447408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2549468043866479856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac4f801d782fd2c4b9e9268be8db68dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackCooldown: 3
+--- !u!114 &1488280603365207919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2549468043866479856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c9298e47ddc1946aa7d86a22ac5c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageZones:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _damageAmount: 10
+  _playerTransform: {fileID: 0}
+  _warningWaitTime: 2
+  _healthThreshold: 500
+--- !u!114 &3928271708101345173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2549468043866479856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 000de449b3747ce41a5e2095c072a988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _explosionForce: 50
+  _maxRadius: 20
+  _explosionDuration: 2
+  _damageAmount: 1
+  _drawGizmos: 0
+  _floor: {fileID: 0}
+  _shaderObject: {fileID: 0}
+--- !u!114 &1255056152233810750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2549468043866479856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5eeea4d770fc77458b6d0f5996ab0ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageAmount: 99999
+  _playerTransform: {fileID: 0}
+  _vfxPrefab: {fileID: 0}
+  _warningTimer: 10
+  _shaderObject: {fileID: 0}
