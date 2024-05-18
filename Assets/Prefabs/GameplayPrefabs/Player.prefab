@@ -250,7 +250,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.726, y: 0.726, z: 0.726}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1476535013286017017}
@@ -434,7 +434,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 2
@@ -453,9 +453,9 @@ MonoBehaviour:
   _lookTarget: {fileID: 0}
   _playerMesh: {fileID: 5986849367083559039}
   _xMovementSpeed: 3
-  _stepSpeed: 100
+  _stepSpeed: 2.5
   _stepDelay: 0.03
-  _maxSteps: 6
+  _maxSteps: 2
   _occlusionMask:
     serializedVersion: 2
     m_Bits: 1
@@ -483,7 +483,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2741137781677840711}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2322b96c355901e458c61370006753df, type: 3}
   m_Name: 

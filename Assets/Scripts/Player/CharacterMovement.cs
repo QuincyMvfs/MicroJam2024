@@ -15,7 +15,7 @@ public class CharacterMovement : MonoBehaviour
 
     [Header("Speeds")]
     [SerializeField] private float _xMovementSpeed = 5.0f;
-    [SerializeField] private float _stepSpeed = 100.0f;
+    [SerializeField] private float _stepSpeed = 5.0f;
 
     [Header("Step Details")]
     [SerializeField] private float _stepDelay = 0.05f; 
@@ -94,7 +94,7 @@ public class CharacterMovement : MonoBehaviour
                 {
                     _currentStep++;
                     _nextStepTime = Time.time + _stepDelay;
-                    this.transform.Translate(new Vector3(0, 0, (_stepSpeed * Time.fixedDeltaTime)), Space.Self);
+                    this.transform.Translate(new Vector3(0, 0, _stepSpeed), Space.Self);
                 }
                 else
                 {
@@ -123,7 +123,7 @@ public class CharacterMovement : MonoBehaviour
                 {
                     _currentStep--;
                     _nextStepTime = Time.time + _stepDelay;
-                    this.transform.Translate(new Vector3(0, 0, -(_stepSpeed * Time.fixedDeltaTime)), Space.Self);
+                    this.transform.Translate(new Vector3(0, 0, -_stepSpeed), Space.Self);
                 }
                 else
                 {
