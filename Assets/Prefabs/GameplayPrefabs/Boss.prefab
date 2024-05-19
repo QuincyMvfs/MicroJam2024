@@ -807,7 +807,7 @@ MonoBehaviour:
   - {fileID: 7854857348455975021}
   - {fileID: 5145880305120433483}
   - {fileID: 2807233254005265433}
-  _damageAmount: 30
+  _damageAmount: 10
   _warningWaitTime: 2
   _zoneExplosionSFX: {fileID: 4279787293561814280, guid: 654a5f9527156174fb65dbde6326957a, type: 3}
   _zoneWarningSFX: {fileID: 4279787293561814280, guid: 094fe63b205433441b764cfeb5ac490c, type: 3}
@@ -949,7 +949,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _launchSpeed: 100
   _rotationDegreesPerSecond: 5
-  _damage: 45
+  _damage: 10
   _lifetime: 20
   _projectile: {fileID: 4945426226323728899, guid: 6009d7b1e4a9c484195baf4b01f4a0b2, type: 3}
   _launchTransform: {fileID: 3120388537839361245}
@@ -2627,7 +2627,7 @@ PrefabInstance:
     - target: {fileID: -264430861247414160, guid: 1c65ca0ae10605b45b5467c94b29349e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: -876546973899608171, guid: 561e9c3f279869b419cc21bec652e6fa, type: 3}
+      objectReference: {fileID: 2100000, guid: 1ec3bc7a80da4464b92ba9ce4a805320, type: 2}
     - target: {fileID: 584855923758527653, guid: 1c65ca0ae10605b45b5467c94b29349e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2647,7 +2647,7 @@ PrefabInstance:
     - target: {fileID: 3575641881151511511, guid: 1c65ca0ae10605b45b5467c94b29349e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: -876546973899608171, guid: 561e9c3f279869b419cc21bec652e6fa, type: 3}
+      objectReference: {fileID: 2100000, guid: 1ec3bc7a80da4464b92ba9ce4a805320, type: 2}
     - target: {fileID: 4694512719869544682, guid: 1c65ca0ae10605b45b5467c94b29349e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 10.12
