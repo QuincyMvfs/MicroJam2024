@@ -10,6 +10,11 @@ public class PauseFunction : MonoBehaviour
     public bool IsPaused => _isPaused;
     private bool _isPaused = false;
 
+    private void Start()
+    {
+        Continue();
+    }
+
     public void Pause()
     {
         _isPaused = !_isPaused;
