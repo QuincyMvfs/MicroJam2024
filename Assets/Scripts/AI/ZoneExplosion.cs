@@ -154,7 +154,14 @@ public class ZoneExplosion : MonoBehaviour
         }
         if (_damageZonesVFX[zoneIndex] != null)
         {
-            Instantiate(_damageZonesVFX[zoneIndex], this.transform.position, Quaternion.identity);
+            _damageZonesVFX[zoneIndex].SetActive(true);
+            StartCoroutine(DeactivateVFXAfterDelay(_damageZonesVFX[zoneIndex], 0.5f));
         }
+    }
+
+    IEnumerator DeactivateVFXAfterDelay(GameObject vfx, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        vfx.SetActive(false);
     }
 }

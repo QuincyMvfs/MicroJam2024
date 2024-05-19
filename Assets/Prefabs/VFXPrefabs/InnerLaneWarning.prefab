@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5832986055511082, guid: d6a4d3951cf05dd44a55763b1d2a59f3, type: 3}
       propertyPath: m_Name
-      value: LaneWarning Variant
+      value: InnerLaneWarning
       objectReference: {fileID: 0}
     - target: {fileID: 3370403874776105647, guid: d6a4d3951cf05dd44a55763b1d2a59f3, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -64,7 +64,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4925546153086255886, guid: d6a4d3951cf05dd44a55763b1d2a59f3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
