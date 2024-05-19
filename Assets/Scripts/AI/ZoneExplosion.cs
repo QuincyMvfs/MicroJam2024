@@ -6,7 +6,7 @@ using UnityEngine;
 public class ZoneExplosion : MonoBehaviour
 {
     [SerializeField] private GameObject[] _damageZones;
-    [SerializeField] private GameObject[] _damageZonesShader;
+    [SerializeField] private GameObject[] _damageZonesVFX;
     [SerializeField] private float _damageAmount = 10.0f;
     [SerializeField] private float _warningWaitTime = 2f;
     [SerializeField] private AudioSource _zoneExplosionSFX;
@@ -100,10 +100,10 @@ public class ZoneExplosion : MonoBehaviour
 
         // Activate zones and apply damage
         ActivateZones(false);
-        AppleZoneExplosionDamage(zoneIndex);
+        ApplyZoneExplosionDamage(zoneIndex);
         if (secondZoneIndex != -1)
         {
-            AppleZoneExplosionDamage(secondZoneIndex);
+            ApplyZoneExplosionDamage(secondZoneIndex);
         }
 
         // SPAWN SFX
@@ -131,7 +131,7 @@ public class ZoneExplosion : MonoBehaviour
     }
 
     // TODO:: Maybe should trigger from anim notify????????????????
-    void AppleZoneExplosionDamage(int zoneIndex)
+    void ApplyZoneExplosionDamage(int zoneIndex)
     {
         SphereCollider selectedZoneCollider = _damageZones[zoneIndex].GetComponent<SphereCollider>();
         if (selectedZoneCollider == null) return;
@@ -167,10 +167,10 @@ public class ZoneExplosion : MonoBehaviour
                 }
             }
         }
-        if (_damageZonesShader[zoneIndex] != null)
+        if (_damageZonesVFX[zoneIndex] != null)
         {
-            _damageZonesShader[zoneIndex].SetActive(true);
-            StartCoroutine(DeactivateVFXAfterDelay(_damageZonesShader[zoneIndex], 0.5f));
+            _damageZonesVFX[zoneIndex].SetActive(true);
+            StartCoroutine(DeactivateVFXAfterDelay(_damageZonesVFX[zoneIndex], 0.5f));
         }
     }
 
