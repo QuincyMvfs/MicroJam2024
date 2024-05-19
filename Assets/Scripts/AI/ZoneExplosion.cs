@@ -6,6 +6,7 @@ using UnityEngine;
 public class ZoneExplosion : MonoBehaviour
 {
     [SerializeField] private GameObject[] _damageZones;
+    [SerializeField] private GameObject[] _damageZonesVFX;
     [SerializeField] private float _damageAmount = 10.0f;
     [SerializeField] private float _warningWaitTime = 2f;
 
@@ -151,5 +152,16 @@ public class ZoneExplosion : MonoBehaviour
                 }
             }
         }
+        if (_damageZonesVFX[zoneIndex] != null)
+        {
+            _damageZonesVFX[zoneIndex].SetActive(true);
+            StartCoroutine(DeactivateVFXAfterDelay(_damageZonesVFX[zoneIndex], 0.5f));
+        }
+    }
+
+    IEnumerator DeactivateVFXAfterDelay(GameObject vfx, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        vfx.SetActive(false);
     }
 }
