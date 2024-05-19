@@ -87,6 +87,12 @@ public class Groundpound : MonoBehaviour
         {
             if (hitCollider.gameObject == this.gameObject) continue;
 
+            CharacterMovement character = hitCollider.GetComponent<CharacterMovement>();
+            if (character != null)
+            {
+                character.PushToLastLane();
+            }
+
             HealthComponent targetHealth = hitCollider.GetComponent<HealthComponent>();
             if (targetHealth != null)
             {
