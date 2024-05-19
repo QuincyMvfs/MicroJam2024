@@ -186,6 +186,14 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
+    public void PushToLastLane()
+    {
+        for(int i = 0; i <= _maxSteps; i++)
+        {
+            MoveBackward();
+        }
+    }
+
     protected IEnumerator MoveLeft()
     {
         CurrentDirection = -1f;
