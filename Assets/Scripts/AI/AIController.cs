@@ -30,6 +30,8 @@ public enum AIState
 public class AIController : MonoBehaviour
 {
     [SerializeField] private float _attackCooldown = 3.0f;
+    [SerializeField] private float _rotationSpeed = 2.0f;
+    [SerializeField] private GameObject _bossMesh;
 
     private ZoneExplosion _zoneExplosion;
     private Groundpound _groundpound;
@@ -39,6 +41,7 @@ public class AIController : MonoBehaviour
     private SpinningLasers _spinningLasers;
     private CircleTravellingProjectile _circleTravellingProjectile;
     private SpawnObsticles _spawnObsticles;
+    private PlayerController _playerController;
 
     private AIState _currentState = AIState.Idle;
 
@@ -55,8 +58,26 @@ public class AIController : MonoBehaviour
         _circleTravellingProjectile = GetComponent<CircleTravellingProjectile>();
         _spawnObsticles = GetComponent<SpawnObsticles>();
 
+        _playerController = FindObjectOfType<PlayerController>();
+
         // Start the AI behavior coroutine
         StartCoroutine(AIBehaviorRoutine());
+    }
+
+    private void Update()
+    {
+        if (_playerController != null && _bossMesh != null)
+        {
+            LookAtPlayer();
+        }
+    }
+
+    private void LookAtPlayer()
+    {
+        Vector3 direction = (_playerController.transform.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        lookRotation *= Quaternion.Euler(0, 180, 0);
+        _bossMesh.transform.rotation = Quaternion.Slerp(_bossMesh.transform.rotation, lookRotation, Time.deltaTime * _rotationSpeed);
     }
 
     IEnumerator AIBehaviorRoutine()

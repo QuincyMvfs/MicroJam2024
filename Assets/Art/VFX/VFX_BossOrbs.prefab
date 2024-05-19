@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5058561188340976904}
   - component: {fileID: 483446316197642362}
   m_Layer: 0
-  m_Name: Orb1
+  m_Name: VFX_BossOrbs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
