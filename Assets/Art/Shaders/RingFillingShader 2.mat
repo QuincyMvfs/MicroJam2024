@@ -198,7 +198,7 @@ Material:
     - _HeightTessAmplitude: 2
     - _HeightTessCenter: 0.5
     - _InnerRadius: 0.628
-    - _InnerTransparentRatio: 0.829
+    - _InnerTransparentRatio: 0.834
     - _InvTilingScale: 1
     - _Ior: 1.5
     - _IridescenceMask: 1

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3370403874776105647}
   - component: {fileID: 4925546153086255886}
   m_Layer: 0
-  m_Name: TransitionWarning 1
+  m_Name: LaneWarning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

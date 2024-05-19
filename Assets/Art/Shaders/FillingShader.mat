@@ -186,7 +186,7 @@ Material:
     - _EnableGeometricSpecularAA: 0
     - _EnergyConservingSpecularColor: 1
     - _FadeWidth: 0.03
-    - _FillAmount: 0.518
+    - _FillAmount: 0.387
     - _GlowIntensity: 11.7
     - _HeightAmplitude: 0.02
     - _HeightCenter: 0.5
