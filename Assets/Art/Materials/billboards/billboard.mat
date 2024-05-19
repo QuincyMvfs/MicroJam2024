@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BossMat
+  m_Name: billboard
   m_Shader: {fileID: -6465566751694194690, guid: 088dfea2b8865ce4a85159e3a23cf786, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -34,15 +34,15 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 41a6893d165857047ba16dc5c157217a, type: 3}
+        m_Texture: {fileID: 2800000, guid: cec3960cf99f83b44b0bb8f4d5035492, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Mask:
-        m_Texture: {fileID: 2800000, guid: d6de4b0af8d78234b8527838246ab8db, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0f93c250d9dc36140991b0b9f0de88b1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
-        m_Texture: {fileID: 2800000, guid: 4084a2adecc44004fa0a66be66e25398, type: 3}
+        m_Texture: {fileID: 2800000, guid: ada151f816d09444796510461ce498c0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -110,7 +110,7 @@ Material:
     m_Colors:
     - _DoubleSidedConstants: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissiveColor: {r: 0, g: 0.9493031, b: 1.5094337, a: 0}
+    - _EmissiveColor: {r: 2, g: 2, b: 2, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &116890756245011093
 MonoBehaviour:

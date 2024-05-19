@@ -289,8 +289,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SFX_RollingBallAmbience
       objectReference: {fileID: 0}
+    - target: {fileID: 2982896749248364397, guid: 58d48b56611f8c441b2d8b4a4637f480, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4279787293561814280, guid: 58d48b56611f8c441b2d8b4a4637f480, type: 3}
       propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279787293561814280, guid: 58d48b56611f8c441b2d8b4a4637f480, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9000375104567615236, guid: 58d48b56611f8c441b2d8b4a4637f480, type: 3}

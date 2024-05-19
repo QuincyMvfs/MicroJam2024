@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PauseFunction : MonoBehaviour
@@ -57,5 +58,12 @@ public class PauseFunction : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         PauseNoMenu();
+    }
+
+    public void PauseInputOnly()
+    {
+        _playerController.StopMovement();
+        _isPaused = true;
+        _forcePaused = true;
     }
 }
