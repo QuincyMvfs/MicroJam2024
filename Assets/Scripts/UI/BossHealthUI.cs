@@ -32,6 +32,7 @@ public class DecreasingBar : MonoBehaviour
             // Set the fill amount
             barImage.fillAmount = fillAmount;
 
+
             // Optional: Stop updating after the duration is reached
             if (elapsedTime >= duration)
             {
@@ -48,6 +49,7 @@ public class DecreasingBar : MonoBehaviour
     public void StopDecreasing()
     {
         isDecreasing = false;
+        
     }
 
     public void RestartDecreasing(float delay)
