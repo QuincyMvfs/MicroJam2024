@@ -12,6 +12,8 @@ public class CharacterMovement : MonoBehaviour
     [Header("Components")]
     [SerializeField] public GameObject LookTarget;
     [SerializeField] private Transform _playerMesh;
+    [SerializeField] public GameObject TeleportInit;
+    [SerializeField] public GameObject TeleportEnd;
 
     [Header("Speeds")]
     [SerializeField] private float _xMovementSpeed = 5.0f;
