@@ -15,6 +15,7 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] public GameObject TeleportInit;
     [SerializeField] public GameObject TeleportEnd;
     [SerializeField] public Transform spawnPosition;
+    [SerializeField] private AudioSource _teleportSFX;
 
     [Header("Speeds")]
     [SerializeField] private float _xMovementSpeed = 5.0f;
@@ -151,6 +152,7 @@ public class CharacterMovement : MonoBehaviour
                 if (!Physics.SphereCast(obstacleRay.origin, _sphereCastRadius, obstacleRay.direction, 
                     out RaycastHit hitInfo, 2.0f, _occlusionMask))
                 {
+                    PlayTeleportSFX();
                     SpawnTeleportEffectInit();
                     _currentStep++;
                     _nextStepTime = Time.time + _stepDelay;
@@ -183,6 +185,7 @@ public class CharacterMovement : MonoBehaviour
                 if (!Physics.SphereCast(obstacleRay.origin, _sphereCastRadius, obstacleRay.direction, 
                     out RaycastHit hitInfo, 2.0f, _occlusionMask))
                 {
+                    PlayTeleportSFX();
                     SpawnTeleportEffectInit();
                     _currentStep--;
                     _nextStepTime = Time.time + _stepDelay;
@@ -272,6 +275,15 @@ public class CharacterMovement : MonoBehaviour
     {
         CurrentDirection = 0f;
         yield return null;
+    }
+
+    private void PlayTeleportSFX()
+    {
+        if (_teleportSFX != null)
+        {
+            AudioSource SpawnedSound = Instantiate(_teleportSFX, transform.position, transform.rotation);
+            Destroy(SpawnedSound, 0.5f);
+        }
     }
 }
 
