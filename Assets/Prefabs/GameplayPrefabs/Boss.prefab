@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5772545931215662724}
   - component: {fileID: 5172033051278249617}
   - component: {fileID: 7293355651188895294}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EyeL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3992390205888247622}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ZoneLocation (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3058814058012839370}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ZoneLocation (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 8504135811810355762}
   - component: {fileID: 3557987489983349133}
   - component: {fileID: 4033721679356274505}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mouth (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +237,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7397601894128093614}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ZoneLocation (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,7 +268,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7379350865654655257}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +301,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4555922726364101384}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 8643516237178629806}
   - component: {fileID: 853178050664058543}
   - component: {fileID: 5181278503776333844}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BaseFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -443,7 +443,7 @@ GameObject:
   - component: {fileID: 4246549538388548297}
   - component: {fileID: 6796130981605872640}
   - component: {fileID: 123118143780740193}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Nose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -607,7 +607,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3120388537839361245}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1011,7 +1011,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 663705342699892094}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ZoneLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1049,7 +1049,7 @@ GameObject:
   - component: {fileID: 4275792673669513543}
   - component: {fileID: 7363369965517846653}
   - component: {fileID: 501662419403225840}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: NoGoFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1237,7 +1237,7 @@ GameObject:
   - component: {fileID: 3212126561181310420}
   - component: {fileID: 4442310997671661461}
   - component: {fileID: 6054548977932796638}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ShaderForDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1320,7 +1320,7 @@ GameObject:
   - component: {fileID: 698248032512773189}
   - component: {fileID: 3562280529270371173}
   - component: {fileID: 948016610177140177}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EyeR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1403,7 +1403,7 @@ GameObject:
   - component: {fileID: 6272950768536434145}
   - component: {fileID: 7972035647527002357}
   - component: {fileID: 3735666538897859786}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1484,7 +1484,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3189504877036100530}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1770,7 +1770,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7217181288964165696}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1809,7 +1809,7 @@ GameObject:
   - component: {fileID: 5356462482850566865}
   - component: {fileID: 1653101949183427895}
   - component: {fileID: 4572306288836919357}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mouth (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
