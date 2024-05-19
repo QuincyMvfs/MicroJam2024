@@ -194,12 +194,14 @@ public class AIController : MonoBehaviour
                 break;
             case 22:
                 StartCoroutine(WaitingTime());      //Health Bar Stop Decreasing
+                Debug.Log("WATING");
                 break;
             case 23:                                //Transition
                 StartCoroutine(OneShotSequence());
                 break;
             case 24:
                 StartCoroutine(WaitingTime());
+                Debug.Log("WATING");
                 break;
             case 25:
                 StartCoroutine(SpiralShootingSequence()); //Health Bar Decreasing again
@@ -207,10 +209,12 @@ public class AIController : MonoBehaviour
             case 26:
                 StartCoroutine(SpawnObsticleSequence());
                 StartCoroutine(BulletShowerSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 27:
                 StartCoroutine(LaserSpinningSequence());
                 StartCoroutine(GroundPoundSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 28:
                 StartCoroutine(SpiralShootingSequence());
@@ -222,11 +226,13 @@ public class AIController : MonoBehaviour
                 StartCoroutine(ZoneExplosionSequence());
                 StartCoroutine(WaitingTime());
                 StartCoroutine(ZoneExplosionSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 31:
                 StartCoroutine(SpawnObsticleSequence());
                 StartCoroutine(GroundPoundSequence());
                 StartCoroutine(BulletShowerSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 32:
                 StartCoroutine(LaserSpinningSequence());
