@@ -62,8 +62,6 @@ public class SpiralShooter : MonoBehaviour
           
             yield return new WaitForSeconds(_fireDelay);
         }
-
-        _aiController.ResetToIdle();
     }
 
     private IEnumerator Spinning()

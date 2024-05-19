@@ -117,7 +117,7 @@ public class AIController : MonoBehaviour
 
     private void BossPattern()
     {
-        // Decide which attack to use
+        //   // Decide which attack to use
         //   AttackType chosenAttack = (AttackType)Random.Range(0, System.Enum.GetValues(typeof(AttackType)).Length);
         
         //AttackType chosenAttack = AttackType.SpawnObsticles;
@@ -127,7 +127,7 @@ public class AIController : MonoBehaviour
         switch (_index)
         {
             case 0:
-                StartCoroutine(OneShotSequence());
+                StartCoroutine(ZoneExplosionSequence());
                 break;
             case 1:
                 StartCoroutine(ZoneExplosionSequence());
