@@ -185,9 +185,9 @@ Material:
     - _EnableFogOnTransparent: 1
     - _EnableGeometricSpecularAA: 0
     - _EnergyConservingSpecularColor: 1
-    - _FadeWidth: 0.03
-    - _FillAmount: 0.313
-    - _GlowIntensity: 11.7
+    - _FadeWidth: 0.1
+    - _FillAmount: 0.472
+    - _GlowIntensity: 17.7
     - _HeightAmplitude: 0.02
     - _HeightCenter: 0.5
     - _HeightMapParametrization: 0
@@ -210,7 +210,7 @@ Material:
     - _NormalScale: 1
     - _ObjectSpaceUVMapping: 0
     - _ObjectSpaceUVMappingEmissive: 0
-    - _Opacity: 0.4
+    - _Opacity: 1
     - _OpaqueCullMode: 2
     - _PPDLodThreshold: 5
     - _PPDMaxSamples: 15
@@ -263,7 +263,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
-    - _CircleColor: {r: 1, g: 0.103087656, b: 0, a: 1}
+    - _CircleColor: {r: 1, g: 0.75892437, b: 0, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}

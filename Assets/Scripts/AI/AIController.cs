@@ -117,7 +117,7 @@ public class AIController : MonoBehaviour
 
     private void BossPattern()
     {
-        //   // Decide which attack to use
+        // Decide which attack to use
         //   AttackType chosenAttack = (AttackType)Random.Range(0, System.Enum.GetValues(typeof(AttackType)).Length);
         
         //AttackType chosenAttack = AttackType.SpawnObsticles;
@@ -127,117 +127,153 @@ public class AIController : MonoBehaviour
         switch (_index)
         {
             case 0:
-                StartCoroutine(BulletShowerSequence());
+                StartCoroutine(SpiralShootingSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 1:
                 StartCoroutine(ZoneExplosionSequence());
+                StartCoroutine(WaitingShortTime());
                 break;
             case 2:
                 StartCoroutine(LaserSpinningSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 3:
                 StartCoroutine(BulletShowerSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 4:
                 StartCoroutine(GroundPoundSequence());
+                StartCoroutine(WaitingShortTime());
                 break;
             case 5:
                 StartCoroutine(SpiralShootingSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 6:
                 StartCoroutine(BulletShowerSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 7:
                 StartCoroutine(LaserSpinningSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 8:
                 StartCoroutine(GroundPoundSequence());
+                StartCoroutine(WaitingShortTime());
                 break;
             case 9:
                 StartCoroutine(BulletShowerSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 10:
                 StartCoroutine(ZoneExplosionSequence());
+                StartCoroutine(WaitingShortTime());
                 break;
             case 11:
                 StartCoroutine(SpiralShootingSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 12:
                 StartCoroutine(ZoneExplosionSequence());
+                StartCoroutine(WaitingShortTime());
                 break;
             case 13:
                 StartCoroutine(LaserSpinningSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 14:
                 StartCoroutine(BulletShowerSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 15:
                 StartCoroutine(GroundPoundSequence());
+                StartCoroutine(WaitingShortTime());
                 break;
             case 16:
                 StartCoroutine(SpiralShootingSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 17:
                 StartCoroutine(CircleTravellingProjectileSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 18:
                 StartCoroutine(LaserSpinningSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 19:
                 StartCoroutine(GroundPoundSequence());
+                StartCoroutine(WaitingShortTime());
                 break;
             case 20:
                 StartCoroutine(BulletShowerSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 21:
                 StartCoroutine(ZoneExplosionSequence());
+                StartCoroutine(WaitingShortTime());
                 break;
             case 22:
+                StartCoroutine(SpiralShootingReverseSequence());
                 StartCoroutine(WaitingTime());      //Health Bar Stop Decreasing
-                Debug.Log("WATING");
                 break;
             case 23:                                //Transition
                 StartCoroutine(OneShotSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 24:
-                StartCoroutine(WaitingTime());
-                Debug.Log("WATING");
+                StartCoroutine(ZoneExplosionSequence());
+                StartCoroutine(WaitingShortTime());
                 break;
             case 25:
-                StartCoroutine(SpiralShootingSequence()); //Health Bar Decreasing again
+                StartCoroutine(ZoneExplosionSequence());
+                StartCoroutine(WaitingShortTime());
                 break;
             case 26:
-                StartCoroutine(SpawnObsticleSequence());
-                StartCoroutine(BulletShowerSequence());
-                StartCoroutine(WaitingTime());
+                StartCoroutine(ZoneExplosionSequence());
+                StartCoroutine(WaitingShortTime());
                 break;
             case 27:
-                StartCoroutine(LaserSpinningSequence());
-                StartCoroutine(GroundPoundSequence());
+                StartCoroutine(SpiralShootingSequence()); //Health Bar Decreasing again
                 StartCoroutine(WaitingTime());
                 break;
             case 28:
-                StartCoroutine(SpiralShootingSequence());
-                break;
-            case 29:
-                StartCoroutine(SpiralShootingReverseSequence());
-                break;
-            case 30:
-                StartCoroutine(ZoneExplosionSequence());
-                StartCoroutine(WaitingTime());
-                StartCoroutine(ZoneExplosionSequence());
-                StartCoroutine(WaitingTime());
-                break;
-            case 31:
                 StartCoroutine(SpawnObsticleSequence());
-                StartCoroutine(GroundPoundSequence());
                 StartCoroutine(BulletShowerSequence());
                 StartCoroutine(WaitingTime());
                 break;
-            case 32:
+            case 29:
                 StartCoroutine(LaserSpinningSequence());
+                StartCoroutine(GroundPoundSequence());
+                StartCoroutine(WaitingShortTime());
+                break;
+            case 30:
+                StartCoroutine(ZoneExplosionSequence());
+                StartCoroutine(WaitingShortTime());
+                break;
+            case 31:
                 StartCoroutine(SpiralShootingSequence());
-                StartCoroutine(SpiralShootingReverseSequence());
+                StartCoroutine(WaitingTime());
+                break;
+            case 32:
+                StartCoroutine(ZoneExplosionSequence());
+                StartCoroutine(WaitingTime());
+                break;
+            case 33:
+                StartCoroutine(BulletShowerSequence());
+                StartCoroutine(WaitingShortTime());
+                break;
+            case 34:
+                StartCoroutine(WaitingShortTime());
+                break;
+            case 35:
+                StartCoroutine(ZoneExplosionSequence());
+                StartCoroutine(WaitingShortTime());
+                break;
+            case 36:                
+                StartCoroutine(SpawnObsticleSequence());
+                StartCoroutine(BulletShowerSequence());
                 break;
                 //Add other cases for different attacks
 
@@ -247,16 +283,16 @@ public class AIController : MonoBehaviour
 
     IEnumerator WaitingTime()
     {
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(10.0f);
         BossPattern();
         // Restart the AI behavior routine
     }
 
     IEnumerator WaitingShortTime()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(3.0f);
+        BossPattern();
         // Restart the AI behavior routine
-        yield return null;
     }
 
     IEnumerator GroundPoundSequence()
