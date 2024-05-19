@@ -34,11 +34,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: cec3960cf99f83b44b0bb8f4d5035492, type: 3}
+        m_Texture: {fileID: 2800000, guid: 768c1aec2c885be43bb388be137ebba2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Mask:
-        m_Texture: {fileID: 2800000, guid: 0f93c250d9dc36140991b0b9f0de88b1, type: 3}
+        m_Texture: {fileID: 2800000, guid: b3ed8b4b324b14944821909c1f61763b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
@@ -110,7 +110,7 @@ Material:
     m_Colors:
     - _DoubleSidedConstants: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissiveColor: {r: 2, g: 2, b: 2, a: 0}
+    - _EmissiveColor: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &116890756245011093
 MonoBehaviour:
