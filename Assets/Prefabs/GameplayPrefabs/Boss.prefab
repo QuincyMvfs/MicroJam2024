@@ -886,11 +886,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spinSpeed: -45
   _attackDuration: 9
-  _fireDelay: 0.3
+  _fireDelay: 0.2
   _projectileSpeed: 600
   _projectileLifetime: 3
   _damage: 10
-  _totalProjectilePerFire: 30
+  _totalProjectilePerFire: 14
   _projectile: {fileID: 4945426226323728899, guid: b5af7ddaf24a33a4b984e8e10ec97029, type: 3}
   _muzzleTransform: {fileID: 9223075895793747309}
 --- !u!114 &4302317726454319616
