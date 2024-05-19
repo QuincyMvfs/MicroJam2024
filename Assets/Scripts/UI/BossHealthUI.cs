@@ -10,6 +10,15 @@ public class DecreasingBar : MonoBehaviour
     private float elapsedTime = 0f;
     private bool isDecreasing = false;
 
+    void Start()
+    {
+        if (barImage == null)
+        {
+            barImage = GetComponent<Image>();
+        }
+        StartDecreasing();
+    }
+
     void Update()
     {
         if (isDecreasing)
@@ -51,15 +60,6 @@ public class DecreasingBar : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         elapsedTime = 0f; // Reset elapsed time
-        StartDecreasing();
-    }
-
-    public void StartTheGame()
-    {
-        if (barImage == null)
-        {
-            barImage = GetComponent<Image>();
-        }
         StartDecreasing();
     }
 }

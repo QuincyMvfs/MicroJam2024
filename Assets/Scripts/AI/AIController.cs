@@ -172,16 +172,16 @@ public class AIController : MonoBehaviour
                 StartCoroutine(ZoneExplosionSequence());
                 break;
             case 22:
-                StartCoroutine(WaitingTime());
+                StartCoroutine(WaitingTime());      //Health Bar Stop Decreasing
                 break;
-            case 23:
+            case 23:                                //Transition
                 StartCoroutine(OneShotSequence());
                 break;
             case 24:
                 StartCoroutine(WaitingTime());
                 break;
             case 25:
-                StartCoroutine(SpiralShootingSequence());
+                StartCoroutine(SpiralShootingSequence()); //Health Bar Decreasing again
                 break;
             case 26:
                 StartCoroutine(SpawnObsticleSequence());
