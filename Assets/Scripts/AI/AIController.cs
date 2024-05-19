@@ -127,7 +127,7 @@ public class AIController : MonoBehaviour
         switch (_index)
         {
             case 0:
-                StartCoroutine(SpiralShootingSequence());
+                StartCoroutine(BulletShowerSequence());
                 break;
             case 1:
                 StartCoroutine(ZoneExplosionSequence());
@@ -248,8 +248,8 @@ public class AIController : MonoBehaviour
     IEnumerator WaitingTime()
     {
         yield return new WaitForSeconds(5.0f);
+        BossPattern();
         // Restart the AI behavior routine
-        yield return null;
     }
 
     IEnumerator WaitingShortTime()

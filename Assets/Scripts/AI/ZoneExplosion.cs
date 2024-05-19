@@ -9,6 +9,9 @@ public class ZoneExplosion : MonoBehaviour
     [SerializeField] private GameObject[] _damageZonesVFX;
     [SerializeField] private float _damageAmount = 10.0f;
     [SerializeField] private float _warningWaitTime = 2f;
+    [SerializeField] private AudioSource _zoneExplosionSFX;
+    [SerializeField] private AudioSource _zoneWarningSFX;
+
 
     [Tooltip("Make 2 zones to apply damage if time below this threshold")]
     [SerializeField] private float _timeThreshold = 100.0f; 
@@ -77,6 +80,13 @@ public class ZoneExplosion : MonoBehaviour
             secondZone.SetIndicatorActive(true);
         }
 
+        // SPAWN SFX
+        if (_zoneWarningSFX != null)
+        {
+            AudioSource SpawnedAudio = Instantiate(_zoneWarningSFX, transform.position, transform.rotation);
+            Destroy(SpawnedAudio, 2f);
+        }
+
         // Wait for a short duration to give the player a warning
         yield return new WaitForSeconds(_warningWaitTime);
 
@@ -96,7 +106,12 @@ public class ZoneExplosion : MonoBehaviour
             ApplyGroundPoundDamage(secondZoneIndex);
         }
 
-        _aiController.ResetToIdle();
+        // SPAWN SFX
+        if (_zoneExplosionSFX != null)
+        {
+            AudioSource SpawnedAudio = Instantiate(_zoneExplosionSFX, transform.position, transform.rotation);
+            Destroy(SpawnedAudio, 2f);
+        }
     }
 
     int DeterminePlayerZone()

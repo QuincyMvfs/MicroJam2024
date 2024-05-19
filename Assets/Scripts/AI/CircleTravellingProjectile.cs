@@ -89,7 +89,6 @@ public class CircleTravellingProjectile : MonoBehaviour
     private IEnumerator DelayReturnToIdle()
     {
         yield return new WaitForSeconds(_delayReturnToIdle);
-        _aiController.ResetToIdle();
         _launchTransform.rotation = _defaultRotation;
         StopCoroutine(DelayReturnToIdle());
     }

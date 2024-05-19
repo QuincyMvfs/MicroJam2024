@@ -47,4 +47,15 @@ public class PauseFunction : MonoBehaviour
         _forcePaused = true;
         Time.timeScale = 0;
     }
+
+    public void PauseWithDelay(float pauseDelay)
+    {
+        StartCoroutine(PauseAfterDelay(pauseDelay));
+    }
+
+    private IEnumerator PauseAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        PauseNoMenu();
+    }
 }

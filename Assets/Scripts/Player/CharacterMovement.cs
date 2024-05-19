@@ -10,7 +10,7 @@ using UnityEngine.InputSystem;
 public class CharacterMovement : MonoBehaviour
 {
     [Header("Components")]
-    [SerializeField] private GameObject _lookTarget;
+    [SerializeField] public GameObject LookTarget;
     [SerializeField] private Transform _playerMesh;
 
     [Header("Speeds")]
@@ -45,7 +45,7 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 LookPosition = _lookTarget.transform.position - transform.position;
+        Vector3 LookPosition = LookTarget.transform.position - transform.position;
         LookPosition.y = 0;
         Quaternion LookRotation = Quaternion.LookRotation(LookPosition);
         transform.rotation = LookRotation;
