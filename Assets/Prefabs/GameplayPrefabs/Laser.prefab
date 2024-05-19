@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2829551698831897842}
   - component: {fileID: 4204296109601854811}
   - component: {fileID: 5518392092517299418}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LaserBeam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 5656970407536856574}
   - component: {fileID: 5112976795199736849}
   - component: {fileID: 8409697330531992127}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spining4Lazers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 68971798339602907}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
