@@ -14,6 +14,7 @@ public enum AttackType
     SpinningLaser,
     BulletShower,
     CircleTravellingProjectile,
+    SpawnObsticles,
 }
 
 public enum AIState
@@ -24,6 +25,7 @@ public enum AIState
 
 [RequireComponent(typeof(SpiralShooter))]
 [RequireComponent(typeof(BulletShower))]
+[RequireComponent(typeof(SpawnObsticles))]
 
 public class AIController : MonoBehaviour
 {
@@ -36,6 +38,7 @@ public class AIController : MonoBehaviour
     private BulletShower _bulletShower;
     private SpinningLasers _spinningLasers;
     private CircleTravellingProjectile _circleTravellingProjectile;
+    private SpawnObsticles _spawnObsticles;
 
     private AIState _currentState = AIState.Idle;
 
@@ -48,6 +51,7 @@ public class AIController : MonoBehaviour
         _spinningLasers = GetComponent<SpinningLasers>();
         _bulletShower = GetComponent<BulletShower>();
         _circleTravellingProjectile = GetComponent<CircleTravellingProjectile>();
+        _spawnObsticles = GetComponent<SpawnObsticles>();
 
         // Start the AI behavior coroutine
         StartCoroutine(AIBehaviorRoutine());
@@ -92,6 +96,7 @@ public class AIController : MonoBehaviour
     {
         // Decide which attack to use
         AttackType chosenAttack = (AttackType)Random.Range(0, System.Enum.GetValues(typeof(AttackType)).Length);
+        //AttackType chosenAttack = AttackType.SpawnObsticles;
         _currentState = AIState.Attacking;
 
         //Execute the chosen attack
@@ -117,6 +122,9 @@ public class AIController : MonoBehaviour
                 break;
             case AttackType.CircleTravellingProjectile:
                 StartCoroutine(CircleTravellingProjectileSequence());
+                break;
+            case AttackType.SpawnObsticles:
+                StartCoroutine(SpawnObsticleSequence());
                 break;
                 //Add other cases for different attacks
         }
@@ -191,6 +199,14 @@ public class AIController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         _circleTravellingProjectile.LaunchCircleTravellingProjectile();
         
+        yield return null;
+    }
+
+    IEnumerator SpawnObsticleSequence()
+    {
+        yield return new WaitForSeconds(0.5f);
+        _spawnObsticles.StartSpawningObsticles();
+
         yield return null;
     }
 
