@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6358634826760447802}
   - component: {fileID: 3661767310196486611}
   - component: {fileID: 1564523273156442651}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TriggerVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}

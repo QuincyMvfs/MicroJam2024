@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+
     private Rigidbody _rb;
     private Collider _collider;
     private float _damage;
@@ -37,6 +38,10 @@ public class Projectile : MonoBehaviour
         if (other.TryGetComponent<HealthComponent>(out HealthComponent health))
         {
             health.Damage(_damage, this.gameObject);
+            Destroy(this.gameObject);
+        }
+        else if (other.gameObject.layer == LayerMask.NameToLayer("Default"))
+        {
             Destroy(this.gameObject);
         }
     }

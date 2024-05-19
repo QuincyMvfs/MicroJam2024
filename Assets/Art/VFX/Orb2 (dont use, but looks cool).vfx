@@ -16,15 +16,12 @@ MonoBehaviour:
   - title: Trails
     position:
       serializedVersion: 2
-      x: 0
-      y: 0
-      width: 100
-      height: 100
+      x: 270
+      y: -590
+      width: 2458
+      height: 1853
     contents:
     - model: {fileID: 8926484042661614608}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614610}
       id: 0
       isStickyNote: 0
     - model: {fileID: 8926484042661614735}
@@ -34,15 +31,6 @@ MonoBehaviour:
       id: 0
       isStickyNote: 0
     - model: {fileID: 8926484042661614613}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614737}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614753}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614743}
       id: 0
       isStickyNote: 0
     - model: {fileID: 8926484042661614782}
@@ -69,49 +57,16 @@ MonoBehaviour:
     - model: {fileID: 8926484042661614647}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614649}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614670}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614788}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661614674}
       id: 0
       isStickyNote: 0
     - model: {fileID: 8926484042661614699}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614701}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661614677}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614692}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614694}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614804}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661614722}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614726}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614806}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614729}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614732}
       id: 0
       isStickyNote: 0
     - model: {fileID: 8926484042661614809}
@@ -137,31 +92,13 @@ MonoBehaviour:
     - model: {fileID: 8926484042661614822}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614845}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661614839}
       id: 0
       isStickyNote: 0
     - model: {fileID: 8926484042661614824}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614850}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661614841}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614882}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614860}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614853}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614880}
       id: 0
       isStickyNote: 0
     - model: {fileID: 8926484042661614786}
@@ -182,8 +119,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 270
     y: -829
-    width: 6142
-    height: 2276
+    width: 6143
+    height: 2369
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -194,7 +131,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d4c867f6b72b714dbb5fd1780afe208, type: 3}
-  m_Name: Orb2
+  m_Name: Orb2 (dont use, but looks cool)
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 0}
@@ -306,7 +243,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 50
+      m_SerializableObject: 100000
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -322,7 +259,7 @@ VisualEffectResource:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Orb2
+  m_Name: Orb2 (dont use, but looks cool)
   m_Graph: {fileID: 114350483966674976}
   m_Infos:
     m_RendererSettings:
@@ -354,7 +291,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children:
   - {fileID: 8926484042661614610}
-  m_UIPosition: {x: 918.1657, y: -531.1994}
+  m_UIPosition: {x: 918, y: -531}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
@@ -3347,7 +3284,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614806}
   - {fileID: 8926484042661614729}
   - {fileID: 8926484042661614732}
-  m_UIPosition: {x: 2270, y: 630}
+  m_UIPosition: {x: 2268, y: 632}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -9833,7 +9770,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614933}
   - {fileID: 8926484042661614961}
   - {fileID: 8926484042661614969}
-  m_UIPosition: {x: 5986, y: 691}
+  m_UIPosition: {x: 5989, y: 784}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -11032,7 +10969,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 50
+      m_SerializableObject: 100000
     m_Space: 2147483647
   m_Property:
     name: o
