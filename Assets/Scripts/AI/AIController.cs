@@ -248,8 +248,8 @@ public class AIController : MonoBehaviour
     IEnumerator WaitingTime()
     {
         yield return new WaitForSeconds(5.0f);
+        BossPattern();
         // Restart the AI behavior routine
-        yield return null;
     }
 
     IEnumerator WaitingShortTime()
