@@ -196,6 +196,7 @@ public class AIController : MonoBehaviour
                 break;
             case 17:
                 StartCoroutine(CircleTravellingProjectileSequence());
+                StartCoroutine(GroundPoundSequence());
                 StartCoroutine(WaitingTime());
                 break;
             case 18:
