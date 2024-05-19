@@ -40,9 +40,11 @@ public class CircleTravellingProjectile : MonoBehaviour
         //choose lane
         int chosenLane = Random.Range(0, 3);
         Transform randomizedLane = _zoneTransforms[chosenLane];
-        Debug.Log("Launching, Lane" + (1 + chosenLane).ToString());
+        //Debug.Log("Launching, Lane" + (1 + chosenLane).ToString());
+        
         //spawn projectile
         _spawnedProjectile = Instantiate(_projectile, _launchTransform.position, _launchTransform.rotation, _rotationPivot);
+        
         //launch projectile in straight line towards player
         _spawnedProjectile.Launch(0, _damage, _lifetime, this.gameObject);
         StartCoroutine(LaunchProjectileForwards(_spawnedProjectile, randomizedLane));
@@ -68,9 +70,6 @@ public class CircleTravellingProjectile : MonoBehaviour
 
     private IEnumerator RotateProjectile()
     {
-
-        Debug.Log("ReachedDestination");
-
         while (true)
         {
             if (_spawnedProjectile == null)
