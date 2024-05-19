@@ -791,6 +791,9 @@ MonoBehaviour:
   _attackCooldown: 3
   _rotationSpeed: 5.9
   _bossMesh: {fileID: 2748648389569754586}
+  OnBossDefeated:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1488280603365207919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -832,6 +835,7 @@ MonoBehaviour:
   _buildupVFXPrefab: {fileID: 7345883148768581602, guid: 60eda221f7a99864a826fe6e374594da, type: 3}
   _explosionVFXPrefab: {fileID: 2944129158081729353, guid: 7fff224dc6584184ba59b00886472e1c, type: 3}
   _warningTimer: 4
+  _waitTimeForCoverToDrop: 1
   _shaderObject: {fileID: 5196483422543474471}
   _coverObjects:
   - {fileID: 2109918216267993581}
@@ -873,7 +877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7295849a622393e45bc558c5fb686351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spinSpeed: 50
+  _spinSpeed: 40
   _attackDuration: 5
   _damage: 10
   _totalLasers: 4

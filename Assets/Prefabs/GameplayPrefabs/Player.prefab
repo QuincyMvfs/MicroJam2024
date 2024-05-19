@@ -383,7 +383,7 @@ MonoBehaviour:
   _teleportSFX: {fileID: 4279787293561814280, guid: 5f4eb49a8a0b55a4e800c50621c67323, type: 3}
   _xMovementSpeed: 6.5
   _stepSpeed: 4.5
-  _stepDelay: 0.07
+  _stepDelay: 0.3
   _maxSteps: 2
   _occlusionMask:
     serializedVersion: 2
