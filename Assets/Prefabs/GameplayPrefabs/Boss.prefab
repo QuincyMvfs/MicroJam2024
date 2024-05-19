@@ -783,6 +783,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackCooldown: 3
+  _rotationSpeed: 5.9
+  _bossMesh: {fileID: 2748648389569754586}
 --- !u!114 &1488280603365207919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -801,7 +803,7 @@ MonoBehaviour:
   - {fileID: 3400976318994639737}
   _damageAmount: 10
   _warningWaitTime: 2
-  _healthThreshold: 500
+  _timeThreshold: 100
 --- !u!114 &3928271708101345173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -814,10 +816,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 000de449b3747ce41a5e2095c072a988, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxRadius: 20
+  _maxRadius: 22.4
   _explosionDuration: 2
   _damageAmount: 1
-  _drawGizmos: 0
+  _drawGizmos: 1
   _floor: {fileID: 2294837244763830617}
   _shaderObject: {fileID: 5704310569721063441}
 --- !u!114 &1255056152233810750
@@ -911,7 +913,7 @@ MonoBehaviour:
   _obsticleToSpawn: {fileID: 246169677087326487, guid: 3c2a72585c379ef44acfcb109cae0767, type: 3}
   _obsticleLifetime: 10
   _angleDistanceFromPlayer: 45
-  _obsticleMoveSpeed: 10
+  _obsticleMoveSpeed: 15
   _distanceFromBoss: 22
 --- !u!114 &629723470312771590
 MonoBehaviour:
@@ -2049,6 +2051,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c65ca0ae10605b45b5467c94b29349e, type: 3}
+--- !u!1 &2748648389569754586 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1c65ca0ae10605b45b5467c94b29349e, type: 3}
+  m_PrefabInstance: {fileID: 3090666662556076171}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3273828346528624480 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1c65ca0ae10605b45b5467c94b29349e, type: 3}
