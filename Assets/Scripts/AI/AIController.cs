@@ -30,7 +30,7 @@ public enum AIState
 public class AIController : MonoBehaviour
 {
     [SerializeField] private float _attackCooldown = 3.0f;
-    [SerializeField] private float _rotationSpeed = 1.0f;
+    [SerializeField] private float _rotationSpeed = 2.0f;
     [SerializeField] private GameObject _bossMesh;
 
     private ZoneExplosion _zoneExplosion;
@@ -77,7 +77,6 @@ public class AIController : MonoBehaviour
         Vector3 direction = (_playerController.transform.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         lookRotation *= Quaternion.Euler(0, 180, 0);
-        Debug.Log("SDfsd");
         _bossMesh.transform.rotation = Quaternion.Slerp(_bossMesh.transform.rotation, lookRotation, Time.deltaTime * _rotationSpeed);
     }
 
