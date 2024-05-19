@@ -106,7 +106,7 @@ public class AIController : MonoBehaviour
         switch (_index)
         {
             case 0:
-                StartCoroutine(GroundPoundSequence());
+                StartCoroutine(SpiralShootingSequence());
                 break;
             case 1:
                 StartCoroutine(ZoneExplosionSequence());
