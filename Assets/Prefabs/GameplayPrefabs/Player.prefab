@@ -406,7 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f79506757e752045ab30656cffb940c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 200
+  MaxHealth: 150
   _godFrames: 1
   _hitSounds:
   - {fileID: 4279787293561814280, guid: 84effb531680e004186786ca7c2d44ab, type: 3}
