@@ -32,9 +32,4 @@ public class PlayerHealthUI : MonoBehaviour
             _playerHealthImage.fillAmount = _currentFillAmount;
         }
     }
-
-    public void SetFillAmount(float fillamount)
-    {
-        _playerHealthImage.fillAmount = fillamount;
-    }
 }
