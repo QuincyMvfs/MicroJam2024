@@ -8,6 +8,9 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    [SerializeField] private AudioSource _hitObsticleSFX;
+    [SerializeField] private AudioSource _hitHealthSFX;
+
 
     private Rigidbody _rb;
     private Collider _collider;
@@ -38,10 +41,20 @@ public class Projectile : MonoBehaviour
         if (other.TryGetComponent<HealthComponent>(out HealthComponent health))
         {
             health.Damage(_damage, this.gameObject);
+            if (_hitHealthSFX != null)
+            {
+                AudioSource SpawnedAudio = Instantiate(_hitHealthSFX, transform.position, transform.rotation);
+                Destroy(SpawnedAudio, 0.5f);
+            }
             Destroy(this.gameObject);
         }
         else if (other.gameObject.layer == LayerMask.NameToLayer("Default"))
         {
+            if (_hitObsticleSFX != null)
+            {
+                AudioSource SpawnedAudio = Instantiate(_hitObsticleSFX, transform.position, transform.rotation);
+                Destroy(SpawnedAudio, 0.5f);
+            }
             Destroy(this.gameObject);
         }
     }

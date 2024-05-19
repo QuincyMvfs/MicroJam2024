@@ -11,6 +11,9 @@ public class OneShotCoverAttack : MonoBehaviour
     [SerializeField] private float _coverMoveDuration = 1.0f; // Duration for cover objects to move up
     [SerializeField] private float _coverMoveHeight = 3.0f;
 
+    [SerializeField] private AudioSource _explosionWarningSFX;
+    [SerializeField] private AudioSource _explosionSFX;
+
     private AIController _aiController;
     private Transform _playerTransform;
 
@@ -48,6 +51,13 @@ public class OneShotCoverAttack : MonoBehaviour
 
         StartCoroutine(MoveCoverObjects(Vector3.up * _coverMoveHeight));
 
+        // SPAWN SFX
+        if (_explosionWarningSFX != null)
+        {
+            AudioSource SpawnedAudio = Instantiate(_explosionWarningSFX, transform.position, transform.rotation);
+            Destroy(SpawnedAudio, 2f);
+        }
+
         yield return new WaitForSeconds(_warningTimer);
 
         Vector3 direction = (_playerTransform.position - transform.position).normalized;
@@ -63,6 +73,13 @@ public class OneShotCoverAttack : MonoBehaviour
             }
         }
 
+        // EXPLOSION SFX
+        if (_explosionSFX != null)
+        {
+            AudioSource SpawnedAudio = Instantiate(_explosionSFX, transform.position, transform.rotation);
+            Destroy(SpawnedAudio, 2f);
+        }
+
         // Spawn the VFX at the current position
         if (_vfxPrefab != null)
         {
@@ -71,7 +88,6 @@ public class OneShotCoverAttack : MonoBehaviour
 
         StartCoroutine(MoveCoverObjects(Vector3.down * _coverMoveHeight));
         _shaderMaterial.SetFloat("_FillAmount", 0.0f);
-        _aiController.ResetToIdle();
     }
 
     IEnumerator MoveCoverObjects(Vector3 direction)
