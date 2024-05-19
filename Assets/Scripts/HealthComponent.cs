@@ -6,12 +6,16 @@ using UnityEngine.Events;
 public class HealthComponent : MonoBehaviour
 {
     [SerializeField] public float MaxHealth = 100.0f;
+    [SerializeField] private float _godFrames = 1f;
+
+    [SerializeField] private AudioSource[] _hitSounds;
+    [SerializeField] private AudioSource[] _deathSounds;
 
     private bool _isDead = false;
+    private float _nextHitTime;
     public UnityEvent OnDeath;
 
     public float CurrentHealth => _currentHealth;
-
     private float _currentHealth;
 
     private void Awake()
@@ -28,17 +32,38 @@ public class HealthComponent : MonoBehaviour
     {
         if(_isDead) return;
 
-        _currentHealth -= amount;
-        Mathf.Clamp(_currentHealth, 0, MaxHealth);
-        if (_currentHealth <= 0)
+        if (_nextHitTime < Time.time)
         {
-            _isDead = true;
-            OnDeath.Invoke();
-            Debug.Log($"{gameObject.name}: Dead");
-        }
+            _nextHitTime = Time.time + _godFrames;
+            _currentHealth -= amount;
+            Mathf.Clamp(_currentHealth, 0, MaxHealth);
+            if (_currentHealth <= 0)
+            {
+                AudioSource deathSound = GetSound(_deathSounds);
+                if (deathSound != null)
+                {
+                    AudioSource SpawnedAudio = Instantiate(deathSound, transform.position, transform.rotation);
+                    Destroy(SpawnedAudio, 2f);
+                }
 
-        // Prevents getting spammed from boss
-        if (this.gameObject.name != "Boss") Debug.Log($"{gameObject.name}: Current Health: {_currentHealth}");
+                _isDead = true;
+                OnDeath.Invoke();
+                Debug.Log($"{gameObject.name}: Dead");
+            }
+            else
+            {
+                AudioSource hitSound = GetSound(_hitSounds);
+                if (hitSound != null)
+                {
+                    AudioSource SpawnedAudio = Instantiate(hitSound, transform.position, transform.rotation);
+                    Destroy(SpawnedAudio, 2f);
+                }
+            }
+
+            // Prevents getting spammed from boss
+            if (this.gameObject.name != "Boss") Debug.Log($"{gameObject.name}: Current Health: {_currentHealth}");
+        }
+      
     }
 
     public void Heal(float amount, GameObject Healer)
@@ -46,5 +71,17 @@ public class HealthComponent : MonoBehaviour
         _currentHealth += amount;
         Mathf.Clamp(_currentHealth, 0, MaxHealth);
 
+    }
+
+    private AudioSource GetSound(AudioSource[] Sounds)
+    {
+        if (Sounds == null || Sounds.Length == 0)
+        {
+            if (this.gameObject.name != "Boss") Debug.Log($"Null Hitsound");
+            return null;
+        }
+
+        int RandomInt = Random.Range(0, Sounds.Length);
+        return Sounds[RandomInt];
     }
 }

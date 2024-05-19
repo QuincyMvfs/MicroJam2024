@@ -17,6 +17,7 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] private Projectile _projectile;
     [SerializeField] private GameObject _muzzleFlashVFX;
     [SerializeField] private Transform _muzzleTransform;
+    [SerializeField] private AudioSource _playerShootingSFX;
 
     private Transform _targetTransform;
     private CharacterMovement _characterMovement;
@@ -43,6 +44,12 @@ public class PlayerWeapon : MonoBehaviour
             SpawnedMuzzleFlash.transform.parent = _muzzleTransform;
             Destroy(SpawnedMuzzleFlash, 1f);
             SpawnedProjectile.Launch(_projectileSpeed, _projectileDamage, _projectileLifetime, this.gameObject);
+
+            if (_playerShootingSFX != null)
+            {
+                AudioSource SpawnedAudio = Instantiate(_playerShootingSFX, transform.position, transform.rotation);
+                Destroy(SpawnedAudio, 0.5f);
+            }
             yield return new WaitForSeconds(_shootDelay);
         }
     }

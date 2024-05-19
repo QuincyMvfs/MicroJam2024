@@ -9,6 +9,9 @@ public class Groundpound : MonoBehaviour
     [SerializeField] private bool _drawGizmos = false;
     [SerializeField] private GameObject _floor;
     [SerializeField] private GameObject _shaderObject;
+
+    [SerializeField] private AudioSource _groundPoundWarningSFX;
+
     private AIController _aiController;
 
     private Material _shaderMaterial;
@@ -37,6 +40,13 @@ public class Groundpound : MonoBehaviour
     {
         if (!_hasExploded)
         {
+            // SPAWN SFX
+            if (_groundPoundWarningSFX != null)
+            {
+                AudioSource SpawnedAudio = Instantiate(_groundPoundWarningSFX, transform.position, transform.rotation);
+                Destroy(SpawnedAudio, 2f);
+            }
+
             _hasExploded = true;
             StartCoroutine(LerpExplosionRadius());
         }
@@ -76,7 +86,6 @@ public class Groundpound : MonoBehaviour
 
         // Reset the explosion effect after completion
         ResetExplosion();
-        _aiController.ResetToIdle();
     }
 
     void TriggerExplosionAtRadius(float radius)

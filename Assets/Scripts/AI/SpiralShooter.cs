@@ -18,6 +18,7 @@ public class SpiralShooter : MonoBehaviour
     [Header("Components")]
     [SerializeField] private Projectile _projectile;
     [SerializeField] private Transform _muzzleTransform;
+    [SerializeField] private AudioSource _shootSFX;
 
     private float _timeToStopFiring = 0;
     private float _timeToReverseFiring = 4.5f;
@@ -46,6 +47,9 @@ public class SpiralShooter : MonoBehaviour
     {
         while (_timeToStopFiring > Time.time)
         {
+            AudioSource SpawnedAudio = Instantiate(_shootSFX, _muzzleTransform.position, _muzzleTransform.rotation);
+            Destroy(SpawnedAudio, 0.5f);
+
             float degreeDifference = 360 / _totalProjectilePerFire;
             float currentDegree = 0 - degreeDifference;
             for (int i = 0; i < _totalProjectilePerFire; i++)
@@ -58,8 +62,6 @@ public class SpiralShooter : MonoBehaviour
           
             yield return new WaitForSeconds(_fireDelay);
         }
-
-        _aiController.ResetToIdle();
     }
 
     private IEnumerator Spinning()

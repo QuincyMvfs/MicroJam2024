@@ -6,6 +6,9 @@ using UnityEngine.InputSystem.XR;
 public class SpawnObsticles : MonoBehaviour
 {
     [SerializeField] private GameObject _obsticleToSpawn;
+    [SerializeField] private AudioSource _obsticleSpawnSFX;
+    [SerializeField] private AudioSource _obsticleDeSpawnSFX;
+
     [SerializeField] private float _obsticleLifetime = 10.0f;
     [SerializeField] private float _angleDistanceFromPlayer = 45.0f;
     [SerializeField] private float _obsticleMoveSpeed = 10.0f;
@@ -64,6 +67,13 @@ public class SpawnObsticles : MonoBehaviour
 
     private IEnumerator SummonObsticleLerp()
     {
+        // SPAWN SFX
+        if (_obsticleSpawnSFX != null)
+        {
+            AudioSource SpawnedAudio = Instantiate(_obsticleSpawnSFX, transform.position, transform.rotation);
+            Destroy(SpawnedAudio, 2f);
+        }
+
         _isMoving = true;
         // Lerp up to block the player
         while (Vector3.Distance(_obsticles[0].transform.position, _leftStartPosition) > 0.01f)
@@ -73,13 +83,19 @@ public class SpawnObsticles : MonoBehaviour
             yield return null;
         }
 
-        _controller.ResetToIdle();
         yield return new WaitForSeconds(_obsticleLifetime);
         StartCoroutine(RemoveObsticleLerp());
     }
 
     private IEnumerator RemoveObsticleLerp()
     {
+        // DESPAWN SFX
+        if (_obsticleDeSpawnSFX != null)
+        {
+            AudioSource SpawnedAudio = Instantiate(_obsticleDeSpawnSFX, transform.position, transform.rotation);
+            Destroy(SpawnedAudio, 2f);
+        }
+
         // Lerp down
         Vector3 leftEndPosition = new Vector3(_leftStartPosition.x, _leftStartPosition.y - _spawnYOffset, _leftStartPosition.z);
         Vector3 rightEndPosition = new Vector3(_rightStartPosition.x, _rightStartPosition.y - _spawnYOffset, _rightStartPosition.z);
