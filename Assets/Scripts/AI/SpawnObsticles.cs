@@ -73,6 +73,7 @@ public class SpawnObsticles : MonoBehaviour
             yield return null;
         }
 
+        _controller.ResetToIdle();
         yield return new WaitForSeconds(_obsticleLifetime);
         StartCoroutine(RemoveObsticleLerp());
     }
@@ -92,6 +93,5 @@ public class SpawnObsticles : MonoBehaviour
         Destroy(_obsticles[0]);
         Destroy(_obsticles[1]);
         _isMoving = false;
-        _controller.ResetToIdle();
     }
 }

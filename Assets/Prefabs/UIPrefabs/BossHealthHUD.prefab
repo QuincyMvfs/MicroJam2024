@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barImage: {fileID: 4934611017838323407}
-  duration: 304
+  duration: 294
 --- !u!1 &6408913338751437978
 GameObject:
   m_ObjectHideFlags: 0
