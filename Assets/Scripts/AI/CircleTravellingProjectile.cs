@@ -81,7 +81,7 @@ public class CircleTravellingProjectile : MonoBehaviour
             {
                 Vector3 rotation = new Vector3(0, _rotationDegreesPerSecond, 0);
                 _rotationPivot.Rotate(rotation);
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(0.01f);
             }
         }
         
