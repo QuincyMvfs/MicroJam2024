@@ -4,7 +4,8 @@ using System.Collections;
 public class Groundpound : MonoBehaviour
 {
     [SerializeField] private float _maxRadius = 20f;
-    [SerializeField] private float _explosionDuration = 2f; 
+    [SerializeField] private float _explosionDuration = 2f;
+    [SerializeField] private GameObject _explosionVFX;
     [SerializeField] private float _damageAmount = 1f;
     [SerializeField] private bool _drawGizmos = false;
     [SerializeField] private GameObject _floor;
@@ -45,6 +46,12 @@ public class Groundpound : MonoBehaviour
             {
                 AudioSource SpawnedAudio = Instantiate(_groundPoundWarningSFX, transform.position, transform.rotation);
                 Destroy(SpawnedAudio, 2f);
+            }
+
+            if(_explosionVFX != null)
+            {
+                GameObject vfx = Instantiate(_explosionVFX, this.transform.position, Quaternion.identity);
+                Destroy(vfx, 2.0f);
             }
 
             _hasExploded = true;
