@@ -11,6 +11,8 @@ public class Projectile : MonoBehaviour
     [SerializeField] private AudioSource _hitObsticleSFX;
     [SerializeField] private AudioSource _hitHealthSFX;
 
+    [SerializeField] private GameObject _hitVFX;
+
 
     private Rigidbody _rb;
     private Collider _collider;
@@ -46,6 +48,12 @@ public class Projectile : MonoBehaviour
                 AudioSource SpawnedAudio = Instantiate(_hitHealthSFX, transform.position, transform.rotation);
                 Destroy(SpawnedAudio, 0.5f);
             }
+
+            if (_hitVFX != null)
+            {
+                GameObject SpawnedVFX = Instantiate(_hitVFX, transform.position, transform.rotation);
+                Destroy(SpawnedVFX, 2.0f);
+            }
             Destroy(this.gameObject);
         }
         else if (other.gameObject.layer == LayerMask.NameToLayer("Default"))
@@ -54,6 +62,12 @@ public class Projectile : MonoBehaviour
             {
                 AudioSource SpawnedAudio = Instantiate(_hitObsticleSFX, transform.position, transform.rotation);
                 Destroy(SpawnedAudio, 0.5f);
+            }
+
+            if (_hitVFX != null)
+            {
+                GameObject SpawnedVFX = Instantiate(_hitVFX, transform.position, transform.rotation);
+                Destroy(SpawnedVFX, 2.0f);
             }
             Destroy(this.gameObject);
         }

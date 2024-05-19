@@ -149,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hitObsticleSFX: {fileID: 4279787293561814280, guid: 8cb9203026702ef41a10532933c584b4, type: 3}
   _hitHealthSFX: {fileID: 4279787293561814280, guid: 9a5fab17777392545a41487f693c46da, type: 3}
+  _hitVFX: {fileID: 151947494218234964, guid: 67e771dd4d8d8d14e9293411e2e8c7f5, type: 3}
 --- !u!1001 &2613407633154247818
 PrefabInstance:
   m_ObjectHideFlags: 0
