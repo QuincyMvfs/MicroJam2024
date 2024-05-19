@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public enum AttackType
@@ -32,6 +33,8 @@ public class AIController : MonoBehaviour
     [SerializeField] private float _attackCooldown = 3.0f;
     [SerializeField] private float _rotationSpeed = 2.0f;
     [SerializeField] private GameObject _bossMesh;
+
+    public UnityEvent OnBossDefeated;
 
     private ZoneExplosion _zoneExplosion;
     private GroundPoundNew _groundpound;
@@ -275,6 +278,8 @@ public class AIController : MonoBehaviour
             case 36:                
                 StartCoroutine(SpawnObsticleSequence());
                 StartCoroutine(BulletShowerSequence());
+                StartCoroutine(EndGameWait());
+                
                 break;
                 //Add other cases for different attacks
 
@@ -293,6 +298,13 @@ public class AIController : MonoBehaviour
     {
         yield return new WaitForSeconds(3.0f);
         BossPattern();
+        // Restart the AI behavior routine
+    }
+
+    IEnumerator EndGameWait()
+    {
+        yield return new WaitForSeconds(15.0f);
+        OnBossDefeated.Invoke();
         // Restart the AI behavior routine
     }
 
