@@ -24,6 +24,7 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float _sphereCastRadius = 0.5f;
 
     public int CurrentStep => _currentStep;
+    public float CurrentDirection;
 
     private Rigidbody _rb;
 
@@ -136,6 +137,7 @@ public class CharacterMovement : MonoBehaviour
 
     protected IEnumerator MoveLeft()
     {
+        CurrentDirection = -1f;
         while (true)
         {
             Ray obstacleRay = new Ray();
@@ -152,6 +154,7 @@ public class CharacterMovement : MonoBehaviour
 
     protected IEnumerator MoveRight()
     {
+        CurrentDirection = 1f;
         while (true)
         {
             Ray obstacleRay = new Ray();
@@ -168,6 +171,7 @@ public class CharacterMovement : MonoBehaviour
 
     protected IEnumerator Stop()
     {
+        CurrentDirection = 0f;
         yield return null;
     }
 
