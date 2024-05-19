@@ -28,10 +28,10 @@ public class ZoneExplosion : MonoBehaviour
         }
     }
 
-    public void PerformGroundPound()
+    public void PerformZoneExplosion()
     {
         ActivateZones(true);
-        StartCoroutine(GroundPoundSequence());
+        StartCoroutine(ZaneExplosionSequence());
     }
 
     void ActivateZones(bool activate)
@@ -47,7 +47,7 @@ public class ZoneExplosion : MonoBehaviour
         }
     }
 
-    IEnumerator GroundPoundSequence()
+    IEnumerator ZaneExplosionSequence()
     {
         int zoneIndex = DeterminePlayerZone();
 

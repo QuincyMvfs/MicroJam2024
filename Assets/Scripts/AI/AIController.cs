@@ -106,7 +106,7 @@ public class AIController : MonoBehaviour
         switch (_index)
         {
             case 0:
-                StartCoroutine(LaserSpinningSequence());
+                StartCoroutine(ZoneExplosionSequence());
                 break;
             case 1:
                 StartCoroutine(ZoneExplosionSequence());
@@ -248,7 +248,7 @@ public class AIController : MonoBehaviour
         //TODO::_animator.SetTrigger("GroundPound");
 
         yield return new WaitForSeconds(0.5f);
-        _zoneExplosion.PerformGroundPound();
+        _zoneExplosion.PerformZoneExplosion();
 
         // Restart the AI behavior routine
         yield return null;

@@ -223,8 +223,6 @@ public class CharacterMovement : MonoBehaviour
         CurrentDirection = 0f;
         yield return null;
     }
-
-
 }
 
 public enum MovementDirections
