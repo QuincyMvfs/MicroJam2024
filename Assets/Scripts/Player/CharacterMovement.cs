@@ -14,13 +14,14 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private Transform _playerMesh;
     [SerializeField] public GameObject TeleportInit;
     [SerializeField] public GameObject TeleportEnd;
+    [SerializeField] public Transform spawnPosition;
 
     [Header("Speeds")]
     [SerializeField] private float _xMovementSpeed = 5.0f;
     [SerializeField] private float _stepSpeed = 5.0f;
 
     [Header("Step Details")]
-    [SerializeField] private float _stepDelay = 0.05f; 
+    [SerializeField] private float _stepDelay = 1.0f; 
     [SerializeField] private int _maxSteps = 4;
     [SerializeField] private LayerMask _occlusionMask;
     [SerializeField] private float _sphereCastRadius = 0.5f;
@@ -32,6 +33,11 @@ public class CharacterMovement : MonoBehaviour
 
     public int CurrentStep => _currentStep;
     public float CurrentDirection;
+
+    
+
+    // The rotation to spawn the GameObject with
+    public Quaternion spawnRotation = Quaternion.identity;
 
     private Rigidbody _rb;
 
@@ -145,9 +151,11 @@ public class CharacterMovement : MonoBehaviour
                 if (!Physics.SphereCast(obstacleRay.origin, _sphereCastRadius, obstacleRay.direction, 
                     out RaycastHit hitInfo, 2.0f, _occlusionMask))
                 {
+                    SpawnTeleportEffectInit();
                     _currentStep++;
                     _nextStepTime = Time.time + _stepDelay;
                     this.transform.Translate(new Vector3(0, 0, _stepSpeed), Space.Self);
+                    SpawnTeleportEffectEnd();
                 }
                 else
                 {
@@ -175,9 +183,11 @@ public class CharacterMovement : MonoBehaviour
                 if (!Physics.SphereCast(obstacleRay.origin, _sphereCastRadius, obstacleRay.direction, 
                     out RaycastHit hitInfo, 2.0f, _occlusionMask))
                 {
+                    SpawnTeleportEffectInit();
                     _currentStep--;
                     _nextStepTime = Time.time + _stepDelay;
                     this.transform.Translate(new Vector3(0, 0, -_stepSpeed), Space.Self);
+                    SpawnTeleportEffectEnd();
                 }
                 else
                 {
@@ -185,6 +195,34 @@ public class CharacterMovement : MonoBehaviour
                     Debug.DrawRay(obstacleRay.origin, obstacleRay.direction, Color.red, 5.0f);
                 }
             }
+        }
+    }
+
+    public void SpawnTeleportEffectInit()
+    {
+        // Check if objectToSpawn is assigned
+        if (TeleportInit != null)
+        {
+            // Spawn the GameObject
+            Instantiate(TeleportInit, spawnPosition.position , spawnRotation);
+        }
+        else
+        {
+            Debug.LogWarning("No object assigned to spawn!");
+        }
+    }
+
+    public void SpawnTeleportEffectEnd()
+    {
+        // Check if objectToSpawn is assigned
+        if (TeleportEnd != null)
+        {
+            // Spawn the GameObject
+            Instantiate(TeleportEnd, spawnPosition.position, spawnRotation);
+        }
+        else
+        {
+            Debug.LogWarning("No object assigned to spawn!");
         }
     }
 
