@@ -52,7 +52,8 @@ public class OneShotCoverAttack : MonoBehaviour
 
         if(_explosionWarningSFX != null )
         {
-            Instantiate(_buildupVFXPrefab, this.transform.position, Quaternion.identity);
+            GameObject vfx = Instantiate(_buildupVFXPrefab, this.transform.position, Quaternion.identity);
+            Destroy(vfx, _warningTimer + 2.0f);
         }
 
         StartCoroutine(MoveCoverObjects(Vector3.up * _coverMoveHeight));
@@ -89,7 +90,8 @@ public class OneShotCoverAttack : MonoBehaviour
         // Spawn the VFX at the current position
         if (_explosionVFXPrefab != null)
         {
-            Instantiate(_explosionVFXPrefab, this.transform.position, Quaternion.identity);
+            GameObject vfx = Instantiate(_explosionVFXPrefab, this.transform.position, Quaternion.identity);
+            Destroy(vfx, 2.0f);
         }
 
         StartCoroutine(MoveCoverObjects(Vector3.down * _coverMoveHeight));
