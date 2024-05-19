@@ -37,7 +37,10 @@ public class PlayerWeapon : MonoBehaviour
     {
         while (true)
         {
-            Vector3 Direction = (_targetTransform.position - _muzzleTransform.position).normalized;
+            Vector3 offsetTargetPosition = _targetTransform.position;
+            offsetTargetPosition.y -= 2.0f;
+
+            Vector3 Direction = (offsetTargetPosition - _muzzleTransform.position).normalized;
             Quaternion LookRotation = Quaternion.LookRotation(Direction);
             Projectile SpawnedProjectile = Instantiate(_projectile, _muzzleTransform.position, LookRotation);
             GameObject SpawnedMuzzleFlash = Instantiate(_muzzleFlashVFX, _muzzleTransform.position, LookRotation);
