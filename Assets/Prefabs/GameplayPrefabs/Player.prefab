@@ -400,6 +400,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 100
+  _hitSounds:
+  - {fileID: 4279787293561814280, guid: 84effb531680e004186786ca7c2d44ab, type: 3}
+  - {fileID: 4279787293561814280, guid: 898cbc69642ab5a49abd3693a8ea9247, type: 3}
+  - {fileID: 4279787293561814280, guid: 737e47cb0a9fe7f4f818891c02b59b64, type: 3}
+  - {fileID: 4279787293561814280, guid: 41db7528136053149a7bd44bcecba8e6, type: 3}
+  - {fileID: 4279787293561814280, guid: 640e961a6ecaef64caa72f5dd8847ed7, type: 3}
+  - {fileID: 4279787293561814280, guid: e03f88ee84ecd8c48b36340f3d5db56a, type: 3}
+  _deathSounds:
+  - {fileID: 4279787293561814280, guid: 98fd9bc53dbea1d418d12d690c872c3a, type: 3}
   OnDeath:
     m_PersistentCalls:
       m_Calls:
@@ -470,6 +479,7 @@ MonoBehaviour:
   _projectile: {fileID: 4945426226323728899, guid: 30746921994ed134e8ae281b16b5fed7, type: 3}
   _muzzleFlashVFX: {fileID: 1587993637083102045, guid: fcf4d398235a1a149a3faa865dca6bfd, type: 3}
   _muzzleTransform: {fileID: 1476535013286017017}
+  _playerShootingSFX: {fileID: 4279787293561814280, guid: 071a1bf561d965e47a6c4e3c9ec79101, type: 3}
 --- !u!1 &7525083282800609330
 GameObject:
   m_ObjectHideFlags: 0
