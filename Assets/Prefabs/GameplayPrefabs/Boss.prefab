@@ -644,13 +644,13 @@ GameObject:
   - component: {fileID: 8701846043821509508}
   - component: {fileID: 7526051178087447408}
   - component: {fileID: 1488280603365207919}
-  - component: {fileID: 3928271708101345173}
   - component: {fileID: 1255056152233810750}
   - component: {fileID: 3724876870433978485}
   - component: {fileID: 8716252965809115624}
   - component: {fileID: 4828964054577102543}
   - component: {fileID: 4302317726454319616}
   - component: {fileID: 629723470312771590}
+  - component: {fileID: 8676402075389878247}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -815,25 +815,6 @@ MonoBehaviour:
   _zoneExplosionSFX: {fileID: 4279787293561814280, guid: 654a5f9527156174fb65dbde6326957a, type: 3}
   _zoneWarningSFX: {fileID: 4279787293561814280, guid: 094fe63b205433441b764cfeb5ac490c, type: 3}
   _timeThreshold: 100
---- !u!114 &3928271708101345173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2549468043866479856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 000de449b3747ce41a5e2095c072a988, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxRadius: 22.4
-  _explosionDuration: 2
-  _damageAmount: 1
-  _drawGizmos: 1
-  _floor: {fileID: 2294837244763830617}
-  _shaderObject: {fileID: 5196483422543474471}
-  _groundPoundWarningSFX: {fileID: 4279787293561814280, guid: e7c53454b8612204a98b9c02a13fe25a, type: 3}
 --- !u!114 &1255056152233810750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -962,6 +943,28 @@ MonoBehaviour:
   - {fileID: 3058814058012839370}
   - {fileID: 3992390205888247622}
   - {fileID: 7397601894128093614}
+--- !u!114 &8676402075389878247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2549468043866479856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c57d48e43e38954dafffc87f54ff3ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageZones:
+  - {fileID: 6424029222449843777}
+  - {fileID: 8030742329636876664}
+  - {fileID: 3400976318994639737}
+  _damageZonesVFX:
+  - {fileID: 7854857348455975021}
+  - {fileID: 5145880305120433483}
+  - {fileID: 2807233254005265433}
+  _damageAmount: 10
+  _warningWaitTime: 2
 --- !u!1 &3240932671569262276
 GameObject:
   m_ObjectHideFlags: 0
@@ -2453,10 +2456,10 @@ Transform:
   - {fileID: 3861944618527197159}
   - {fileID: 1229961788377684864}
   - {fileID: 5315213077875760440}
-  - {fileID: 6234677768916438189}
   - {fileID: 2271307835623061771}
   - {fileID: 321279854863003316}
   - {fileID: 1957221211750241295}
+  - {fileID: 6234677768916438189}
   - {fileID: 7611984001205276281}
   - {fileID: 5848638530665527470}
   m_Father: {fileID: 5000262352035313092}

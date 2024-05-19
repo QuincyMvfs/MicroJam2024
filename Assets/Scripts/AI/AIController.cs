@@ -34,7 +34,7 @@ public class AIController : MonoBehaviour
     [SerializeField] private GameObject _bossMesh;
 
     private ZoneExplosion _zoneExplosion;
-    private Groundpound _groundpound;
+    private GroundPoundNew _groundpound;
     private OneShotCoverAttack _oneShotCoverAttack;
     private SpiralShooter _spiralShooter;
     private BulletShower _bulletShower;
@@ -50,7 +50,7 @@ public class AIController : MonoBehaviour
     void Start()
     {
         _zoneExplosion = GetComponent<ZoneExplosion>();
-        _groundpound = GetComponent<Groundpound>();
+        _groundpound = GetComponent<GroundPoundNew>();
         _oneShotCoverAttack = GetComponent<OneShotCoverAttack>();
         _spiralShooter = GetComponent<SpiralShooter>();
         _spinningLasers = GetComponent<SpinningLasers>();
@@ -127,7 +127,7 @@ public class AIController : MonoBehaviour
         switch (_index)
         {
             case 0:
-                StartCoroutine(SpiralShootingSequence());
+                StartCoroutine(GroundPoundSequence());
                 StartCoroutine(WaitingTime());
                 break;
             case 1:
@@ -300,7 +300,7 @@ public class AIController : MonoBehaviour
         //TODO::_animator.SetTrigger("GroundPound");
 
         yield return new WaitForSeconds(0.5f); 
-        _groundpound.StartExplosion();
+        _groundpound.PerformGroundPound();
 
         // Restart the AI behavior routine
         yield return null;
