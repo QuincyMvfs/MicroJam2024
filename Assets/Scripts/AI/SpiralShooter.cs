@@ -34,6 +34,13 @@ public class SpiralShooter : MonoBehaviour
         StartCoroutine(Spinning());
     }
 
+    public void StartSpinningReverse()
+    {
+        _timeToStopFiring = Time.time + _attackDuration;
+        StartCoroutine(SpinningAttack());
+        StartCoroutine(SpinningReverse());
+    }
+
     private IEnumerator SpinningAttack()
     {
         while (_timeToStopFiring > Time.time)
@@ -59,6 +66,15 @@ public class SpiralShooter : MonoBehaviour
         while (_timeToStopFiring > Time.time)
         {
             _muzzleTransform.Rotate(transform.position, _spinSpeed * Time.deltaTime);
+            yield return null;
+        }
+    }
+
+    private IEnumerator SpinningReverse()
+    {
+        while (_timeToStopFiring > Time.time)
+        {
+            _muzzleTransform.Rotate(transform.position, -_spinSpeed * Time.deltaTime);
             yield return null;
         }
     }

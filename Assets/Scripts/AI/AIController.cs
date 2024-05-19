@@ -42,6 +42,8 @@ public class AIController : MonoBehaviour
 
     private AIState _currentState = AIState.Idle;
 
+    private int _index;
+
     void Start()
     {
         _zoneExplosion = GetComponent<ZoneExplosion>();
@@ -80,7 +82,7 @@ public class AIController : MonoBehaviour
         yield return new WaitForSeconds(_attackCooldown);
 
         // Decide on an attack
-        DecideAttack();
+        BossPattern();
     }
 
     IEnumerator AttackingRoutine()
@@ -92,43 +94,148 @@ public class AIController : MonoBehaviour
         }
     }
 
-    void DecideAttack()
+    void BossPattern()
     {
-        // Decide which attack to use
-        AttackType chosenAttack = (AttackType)Random.Range(0, System.Enum.GetValues(typeof(AttackType)).Length);
+        //   // Decide which attack to use
+        //   AttackType chosenAttack = (AttackType)Random.Range(0, System.Enum.GetValues(typeof(AttackType)).Length);
+        
         //AttackType chosenAttack = AttackType.SpawnObsticles;
         _currentState = AIState.Attacking;
-
+    
         //Execute the chosen attack
-        switch (chosenAttack)
+        switch (_index)
         {
-            case AttackType.GroundPound:
-                StartCoroutine(GroundPoundSequence());
-                break;
-            case AttackType.ZoneExplosion:
-                StartCoroutine(ZoneExplosionSequence());
-                break;
-            case AttackType.OneShotCoverAttack:
-                StartCoroutine(OneShotSequence());
-                break;
-            case AttackType.SpiralShooting:
+            case 0:
                 StartCoroutine(SpiralShootingSequence());
                 break;
-            case AttackType.SpinningLaser:
-                StartCoroutine(LaserSpinningSequence());
-                break;
-            case AttackType.BulletShower:
-                StartCoroutine(BulletShowerSequence());
-                break;
-            case AttackType.CircleTravellingProjectile:
+            case 1:
+                StartCoroutine(CircleTravellingProjectileSequence());
+                StartCoroutine(WaitingShortTime());
+                StartCoroutine(CircleTravellingProjectileSequence());
+                StartCoroutine(WaitingShortTime());
                 StartCoroutine(CircleTravellingProjectileSequence());
                 break;
-            case AttackType.SpawnObsticles:
+            case 2:
+                StartCoroutine(LaserSpinningSequence());
+                break;
+            case 3:
+                StartCoroutine(BulletShowerSequence());
+                break;
+            case 4:
+                StartCoroutine(GroundPoundSequence());
+                break;
+            case 5:
+                StartCoroutine(SpiralShootingSequence());
+                break;
+            case 6:
+                StartCoroutine(CircleTravellingProjectileSequence());
+                break;
+            case 7:
+                StartCoroutine(LaserSpinningSequence());
+                break;
+            case 8:
+                StartCoroutine(GroundPoundSequence());
+                break;
+            case 9:
+                StartCoroutine(BulletShowerSequence());
+                break;
+            case 10:
+                StartCoroutine(ZoneExplosionSequence());
+                break;
+            case 11:
+                StartCoroutine(SpiralShootingSequence());
+                break;
+            case 12:
+                StartCoroutine(ZoneExplosionSequence());
+                break;
+            case 13:
+                StartCoroutine(LaserSpinningSequence());
+                break;
+            case 14:
+                StartCoroutine(BulletShowerSequence());
+                break;
+            case 15:
+                StartCoroutine(GroundPoundSequence());
+                break;
+            case 16:
+                StartCoroutine(SpiralShootingSequence());
+                break;
+            case 17:
+                StartCoroutine(CircleTravellingProjectileSequence());
+                break;
+            case 18:
+                StartCoroutine(LaserSpinningSequence());
+                break;
+            case 19:
+                StartCoroutine(GroundPoundSequence());
+                break;
+            case 20:
+                StartCoroutine(BulletShowerSequence());
+                break;
+            case 21:
+                StartCoroutine(ZoneExplosionSequence());
+                break;
+            case 22:
+                StartCoroutine(WaitingTime());
+                break;
+            case 23:
+                StartCoroutine(OneShotSequence());
+                break;
+            case 24:
+                StartCoroutine(WaitingTime());
+                break;
+            case 25:
+                StartCoroutine(SpiralShootingSequence());
+                break;
+            case 26:
                 StartCoroutine(SpawnObsticleSequence());
+                StartCoroutine(BulletShowerSequence());
+                break;
+            case 27:
+                StartCoroutine(LaserSpinningSequence());
+                StartCoroutine(GroundPoundSequence());
+                break;
+            case 28:
+                StartCoroutine(SpiralShootingSequence());
+                break;
+            case 29:
+                StartCoroutine(SpiralShootingReverseSequence());
+                break;
+            case 30:
+                StartCoroutine(ZoneExplosionSequence());
+                StartCoroutine(WaitingTime());
+                StartCoroutine(ZoneExplosionSequence());
+                break;
+            case 31:
+                StartCoroutine(SpawnObsticleSequence());
+                StartCoroutine(GroundPoundSequence());
+                StartCoroutine(BulletShowerSequence());
+                break;
+            case 32:
+                StartCoroutine(LaserSpinningSequence());
+                StartCoroutine(SpiralShootingSequence());
+                StartCoroutine(SpiralShootingReverseSequence());
                 break;
                 //Add other cases for different attacks
+
         }
+        _index++;
     }
+
+    IEnumerator WaitingTime()
+    {
+        yield return new WaitForSeconds(5.0f);
+        // Restart the AI behavior routine
+        yield return null;
+    }
+
+    IEnumerator WaitingShortTime()
+    {
+        yield return new WaitForSeconds(1.0f);
+        // Restart the AI behavior routine
+        yield return null;
+    }
+
     IEnumerator GroundPoundSequence()
     {
         //TODO::_animator.SetTrigger("GroundPound");
@@ -168,6 +275,17 @@ public class AIController : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
         _spiralShooter.StartSpinning();
+
+        // Restart the AI behavior routine
+        yield return null;
+    }
+
+    IEnumerator SpiralShootingReverseSequence()
+    {
+        //TODO::_animator.SetTrigger("GroundPound");
+
+        yield return new WaitForSeconds(0.5f);
+        _spiralShooter.StartSpinningReverse();
 
         // Restart the AI behavior routine
         yield return null;
