@@ -9,6 +9,9 @@ public class GroundPoundNew : MonoBehaviour
     [SerializeField] private float _damageAmount = 10.0f;
     [SerializeField] private float _warningWaitTime = 2f;
 
+    [SerializeField] private AudioSource _explosionChargeUpSFX;
+    [SerializeField] private AudioSource _explosionSFX;
+
     public void PerformGroundPound()
     {
         StartCoroutine(PerformGroundSequence());
@@ -16,7 +19,7 @@ public class GroundPoundNew : MonoBehaviour
 
     IEnumerator PerformGroundSequence()
     {
-        for(int i = 0; i < _damageZones.Length; i++)
+        for (int i = 0; i < _damageZones.Length; i++)
         {
             // Check if the selected zone is valid
             if (_damageZones[i] == null)
@@ -24,11 +27,23 @@ public class GroundPoundNew : MonoBehaviour
                 yield break;
             }
 
+            if (_explosionChargeUpSFX != null)
+            {
+                AudioSource SpawnedAudio = Instantiate(_explosionChargeUpSFX, transform.position, transform.rotation);
+                Destroy(SpawnedAudio, _warningWaitTime);
+            }
             // Show the indicator for the selected zone
             ZoneIndicator zone = _damageZones[i].GetComponent<ZoneIndicator>();
             zone.SetIndicatorActive(true);
             
             yield return new WaitForSeconds(_warningWaitTime);
+
+            if (_explosionSFX != null)
+            {
+                AudioSource SpawnedAudio = Instantiate(_explosionSFX, transform.position, transform.rotation);
+                Destroy(SpawnedAudio, 2f);
+            }
+
             ApplyZoneExplosionDamage(i);
             zone.SetIndicatorActive(false);
         }

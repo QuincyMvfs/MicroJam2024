@@ -772,6 +772,7 @@ MonoBehaviour:
   _godFrames: 1
   _hitSounds: []
   _deathSounds: []
+  _hitVFX: {fileID: 0}
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -965,6 +966,8 @@ MonoBehaviour:
   - {fileID: 2807233254005265433}
   _damageAmount: 10
   _warningWaitTime: 2
+  _explosionChargeUpSFX: {fileID: 4279787293561814280, guid: 7d5008a8342f52c43a3a1360b3d1a461, type: 3}
+  _explosionSFX: {fileID: 4279787293561814280, guid: 654a5f9527156174fb65dbde6326957a, type: 3}
 --- !u!1 &3240932671569262276
 GameObject:
   m_ObjectHideFlags: 0
