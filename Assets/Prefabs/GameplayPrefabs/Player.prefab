@@ -373,7 +373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lookTarget: {fileID: 0}
   _playerMesh: {fileID: 3566094241822052211}
-  _xMovementSpeed: 5
+  _xMovementSpeed: 30
   _stepSpeed: 2.5
   _stepDelay: 0.03
   _maxSteps: 2
@@ -381,6 +381,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   _sphereCastRadius: 0.5
+  _largeCircleSize: 23.9
+  _mediumCircleSize: 21.4
+  _smallCircleSize: 18.9
   CurrentDirection: 0
 --- !u!114 &4780969592950662986
 MonoBehaviour:
