@@ -829,8 +829,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageAmount: 99999
-  _buildupVFXPrefab: {fileID: 0}
-  _explosionVFXPrefab: {fileID: 0}
+  _buildupVFXPrefab: {fileID: 7345883148768581602, guid: 60eda221f7a99864a826fe6e374594da, type: 3}
+  _explosionVFXPrefab: {fileID: 2944129158081729353, guid: 7fff224dc6584184ba59b00886472e1c, type: 3}
   _warningTimer: 4
   _shaderObject: {fileID: 5196483422543474471}
   _coverObjects:

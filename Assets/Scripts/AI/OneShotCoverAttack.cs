@@ -7,6 +7,7 @@ public class OneShotCoverAttack : MonoBehaviour
     [SerializeField] private GameObject _buildupVFXPrefab;
     [SerializeField] private GameObject _explosionVFXPrefab;
     [SerializeField] private float _warningTimer = 10.0f;
+    [SerializeField] private float _waitTimeForCoverToDrop = 1.0f;
     [SerializeField] private GameObject _shaderObject;
     [SerializeField] private Transform[] _coverObjects; 
     [SerializeField] private float _coverMoveDuration = 1.0f; 
@@ -93,6 +94,8 @@ public class OneShotCoverAttack : MonoBehaviour
             GameObject vfx = Instantiate(_explosionVFXPrefab, this.transform.position, Quaternion.identity);
             Destroy(vfx, 2.0f);
         }
+
+        yield return new WaitForSeconds(_waitTimeForCoverToDrop);
 
         StartCoroutine(MoveCoverObjects(Vector3.down * _coverMoveHeight));
         _shaderMaterial.SetFloat("_FillAmount", 0.0f);
