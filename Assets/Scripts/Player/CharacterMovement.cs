@@ -23,6 +23,11 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private LayerMask _occlusionMask;
     [SerializeField] private float _sphereCastRadius = 0.5f;
 
+    [Header("Step Positions")]
+    [SerializeField] private float _largeCircleSize = 23.9f;
+    [SerializeField] private float _mediumCircleSize = 21.4f;
+    [SerializeField] private float _smallCircleSize = 18.9f;
+
     public int CurrentStep => _currentStep;
     public float CurrentDirection;
 
@@ -31,9 +36,6 @@ public class CharacterMovement : MonoBehaviour
     private float _nextStepTime = 0;
     private int _currentStep = 0;
     protected IEnumerator _currentState;
-    private float _largeCircleSize = 23.9f;
-    private float _mediumCircleSize = 21.4f;
-    private float _smallCircleSize = 18.9f;
 
     private void Awake()
     {
