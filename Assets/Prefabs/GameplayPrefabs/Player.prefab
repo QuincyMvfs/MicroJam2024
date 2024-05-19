@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3387917295727997570}
   - component: {fileID: 7086638942863533243}
   - component: {fileID: 7330496360297273678}
-  - component: {fileID: 2949781488823185585}
+  - component: {fileID: 524266927227870779}
   m_Layer: 6
   m_Name: PlayerCamera
   m_TagString: Untagged
@@ -93,7 +93,7 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863636849647874576}
   m_Enabled: 1
---- !u!114 &2949781488823185585
+--- !u!114 &524266927227870779
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -374,16 +374,16 @@ MonoBehaviour:
   _lookTarget: {fileID: 0}
   _playerMesh: {fileID: 3566094241822052211}
   _xMovementSpeed: 6.5
-  _stepSpeed: 2.5
-  _stepDelay: 0.03
+  _stepSpeed: 4.5
+  _stepDelay: 0.07
   _maxSteps: 2
   _occlusionMask:
     serializedVersion: 2
     m_Bits: 1
   _sphereCastRadius: 0.5
   _largeCircleSize: 23.9
-  _mediumCircleSize: 21.4
-  _smallCircleSize: 18.9
+  _mediumCircleSize: 19.4
+  _smallCircleSize: 14.9
   CurrentDirection: 0
 --- !u!114 &4780969592950662986
 MonoBehaviour:
