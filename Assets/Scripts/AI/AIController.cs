@@ -109,11 +109,7 @@ public class AIController : MonoBehaviour
                 StartCoroutine(SpiralShootingSequence());
                 break;
             case 1:
-                StartCoroutine(CircleTravellingProjectileSequence());
-                StartCoroutine(WaitingShortTime());
-                StartCoroutine(CircleTravellingProjectileSequence());
-                StartCoroutine(WaitingShortTime());
-                StartCoroutine(CircleTravellingProjectileSequence());
+                StartCoroutine(ZoneExplosionSequence());
                 break;
             case 2:
                 StartCoroutine(LaserSpinningSequence());
@@ -128,7 +124,7 @@ public class AIController : MonoBehaviour
                 StartCoroutine(SpiralShootingSequence());
                 break;
             case 6:
-                StartCoroutine(CircleTravellingProjectileSequence());
+                StartCoroutine(BulletShowerSequence());
                 break;
             case 7:
                 StartCoroutine(LaserSpinningSequence());
