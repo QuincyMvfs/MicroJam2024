@@ -20,6 +20,7 @@ public class SpiralShooter : MonoBehaviour
     [SerializeField] private Transform _muzzleTransform;
 
     private float _timeToStopFiring = 0;
+    private float _timeToReverseFiring = 4.5f;
     private AIController _aiController;
 
     private void Awake()
@@ -63,11 +64,12 @@ public class SpiralShooter : MonoBehaviour
 
     private IEnumerator Spinning()
     {
-        while (_timeToStopFiring > Time.time)
+        while (_timeToStopFiring - _timeToReverseFiring> Time.time)
         {
             _muzzleTransform.Rotate(transform.position, _spinSpeed * Time.deltaTime);
             yield return null;
         }
+        StartCoroutine(SpinningReverse());
     }
 
     private IEnumerator SpinningReverse()

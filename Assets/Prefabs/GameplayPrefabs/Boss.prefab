@@ -876,7 +876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7295849a622393e45bc558c5fb686351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spinSpeed: 25
+  _spinSpeed: 40
   _attackDuration: 5
   _damage: 10
   _totalLasers: 4
