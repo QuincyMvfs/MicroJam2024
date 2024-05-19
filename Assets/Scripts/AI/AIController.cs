@@ -127,70 +127,92 @@ public class AIController : MonoBehaviour
         switch (_index)
         {
             case 0:
-                StartCoroutine(OneShotSequence());
+                StartCoroutine(SpiralShootingSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 1:
                 StartCoroutine(ZoneExplosionSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 2:
                 StartCoroutine(LaserSpinningSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 3:
                 StartCoroutine(BulletShowerSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 4:
                 StartCoroutine(GroundPoundSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 5:
                 StartCoroutine(SpiralShootingSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 6:
                 StartCoroutine(BulletShowerSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 7:
                 StartCoroutine(LaserSpinningSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 8:
                 StartCoroutine(GroundPoundSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 9:
                 StartCoroutine(BulletShowerSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 10:
                 StartCoroutine(ZoneExplosionSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 11:
                 StartCoroutine(SpiralShootingSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 12:
                 StartCoroutine(ZoneExplosionSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 13:
                 StartCoroutine(LaserSpinningSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 14:
                 StartCoroutine(BulletShowerSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 15:
                 StartCoroutine(GroundPoundSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 16:
                 StartCoroutine(SpiralShootingSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 17:
                 StartCoroutine(CircleTravellingProjectileSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 18:
                 StartCoroutine(LaserSpinningSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 19:
                 StartCoroutine(GroundPoundSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 20:
                 StartCoroutine(BulletShowerSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 21:
                 StartCoroutine(ZoneExplosionSequence());
+                StartCoroutine(WaitingTime());
                 break;
             case 22:
                 StartCoroutine(WaitingTime());      //Health Bar Stop Decreasing
@@ -254,9 +276,9 @@ public class AIController : MonoBehaviour
 
     IEnumerator WaitingShortTime()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(2.0f);
+        BossPattern();
         // Restart the AI behavior routine
-        yield return null;
     }
 
     IEnumerator GroundPoundSequence()
