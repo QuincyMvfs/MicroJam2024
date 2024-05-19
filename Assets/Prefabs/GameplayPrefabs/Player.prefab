@@ -379,6 +379,7 @@ MonoBehaviour:
   TeleportInit: {fileID: 1280284497999709927, guid: 1fcf51bb4b7a11c4189ee76e0ea282f0, type: 3}
   TeleportEnd: {fileID: 1532445020564874254, guid: 8645248d4fe3bb64999d451eaab03bfc, type: 3}
   spawnPosition: {fileID: 8230479138282176513}
+  _teleportSFX: {fileID: 4279787293561814280, guid: 5f4eb49a8a0b55a4e800c50621c67323, type: 3}
   _xMovementSpeed: 6.5
   _stepSpeed: 4.5
   _stepDelay: 0.07
