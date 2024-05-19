@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8081077197165735450}
   - component: {fileID: 8566095513904834485}
   - component: {fileID: 4945426226323728899}
+  - component: {fileID: 6070286230127110062}
   m_Layer: 8
   m_Name: CircleTravellingProjectile
   m_TagString: Untagged
@@ -65,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b10a573679c5d864a86304cbb6b7265b, type: 2}
+  - {fileID: 2100000, guid: 58195fc9a0507d442b8f5c7a0d00bf15, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -149,6 +150,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hitObsticleSFX: {fileID: 4279787293561814280, guid: 8cb9203026702ef41a10532933c584b4, type: 3}
   _hitHealthSFX: {fileID: 4279787293561814280, guid: 9a5fab17777392545a41487f693c46da, type: 3}
+--- !u!114 &6070286230127110062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2309248679953591688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f3a9b2359738544c9fe49ee0dd62c0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeedX: 500
+  rotationSpeedY: 500
+  rotationSpeedZ: 500
 --- !u!1001 &3665992278023215555
 PrefabInstance:
   m_ObjectHideFlags: 0
