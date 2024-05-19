@@ -6,6 +6,7 @@ using UnityEngine;
 public class ZoneExplosion : MonoBehaviour
 {
     [SerializeField] private GameObject[] _damageZones;
+    [SerializeField] private GameObject[] _damageZonesVFX;
     [SerializeField] private float _damageAmount = 10.0f;
     [SerializeField] private float _warningWaitTime = 2f;
 
@@ -150,6 +151,10 @@ public class ZoneExplosion : MonoBehaviour
                     targetHealth.Damage(_damageAmount, this.gameObject);
                 }
             }
+        }
+        if (_damageZonesVFX[zoneIndex] != null)
+        {
+            Instantiate(_damageZonesVFX[zoneIndex], this.transform.position, Quaternion.identity);
         }
     }
 }
