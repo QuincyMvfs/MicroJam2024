@@ -23,8 +23,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FillingShader
-  m_Shader: {fileID: 4800000, guid: 2e4295e5ccf65e743b1a212b170d1ab7, type: 3}
+  m_Name: RingFillingShader 2
+  m_Shader: {fileID: 4800000, guid: 09b6133359b19964681116f92932d7be, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -186,8 +186,8 @@ Material:
     - _EnableGeometricSpecularAA: 0
     - _EnergyConservingSpecularColor: 1
     - _FadeWidth: 0.03
-    - _FillAmount: 0.518
-    - _GlowIntensity: 11.7
+    - _FillAmount: 1
+    - _GlowIntensity: 8.4
     - _HeightAmplitude: 0.02
     - _HeightCenter: 0.5
     - _HeightMapParametrization: 0
@@ -197,6 +197,8 @@ Material:
     - _HeightPoMAmplitude: 2
     - _HeightTessAmplitude: 2
     - _HeightTessCenter: 0.5
+    - _InnerRadius: 0.628
+    - _InnerTransparentRatio: 0.829
     - _InvTilingScale: 1
     - _Ior: 1.5
     - _IridescenceMask: 1
@@ -212,6 +214,7 @@ Material:
     - _ObjectSpaceUVMappingEmissive: 0
     - _Opacity: 0.4
     - _OpaqueCullMode: 2
+    - _OuterRadius: 1
     - _PPDLodThreshold: 5
     - _PPDMaxSamples: 15
     - _PPDMinSamples: 5
@@ -273,6 +276,7 @@ Material:
     - _GlowColor: {r: 1, g: 0, b: 0, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
+    - _RingColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}
