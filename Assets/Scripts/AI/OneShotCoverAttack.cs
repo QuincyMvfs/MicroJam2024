@@ -4,11 +4,12 @@ using UnityEngine;
 public class OneShotCoverAttack : MonoBehaviour
 {
     [SerializeField] private float _damageAmount = 999999.0f;
-    [SerializeField] private GameObject _vfxPrefab;
+    [SerializeField] private GameObject _buildupVFXPrefab;
+    [SerializeField] private GameObject _explosionVFXPrefab;
     [SerializeField] private float _warningTimer = 10.0f;
     [SerializeField] private GameObject _shaderObject;
-    [SerializeField] private Transform[] _coverObjects; // Array of cover objects
-    [SerializeField] private float _coverMoveDuration = 1.0f; // Duration for cover objects to move up
+    [SerializeField] private Transform[] _coverObjects; 
+    [SerializeField] private float _coverMoveDuration = 1.0f; 
     [SerializeField] private float _coverMoveHeight = 3.0f;
 
     [SerializeField] private AudioSource _explosionWarningSFX;
@@ -49,6 +50,11 @@ public class OneShotCoverAttack : MonoBehaviour
     {
         _shaderMaterial.SetFloat("_FillAmount", 1.0f);
 
+        if(_explosionWarningSFX != null )
+        {
+            Instantiate(_buildupVFXPrefab, this.transform.position, Quaternion.identity);
+        }
+
         StartCoroutine(MoveCoverObjects(Vector3.up * _coverMoveHeight));
 
         // SPAWN SFX
@@ -81,9 +87,9 @@ public class OneShotCoverAttack : MonoBehaviour
         }
 
         // Spawn the VFX at the current position
-        if (_vfxPrefab != null)
+        if (_explosionVFXPrefab != null)
         {
-            Instantiate(_vfxPrefab, this.transform.position, Quaternion.identity);
+            Instantiate(_explosionVFXPrefab, this.transform.position, Quaternion.identity);
         }
 
         StartCoroutine(MoveCoverObjects(Vector3.down * _coverMoveHeight));

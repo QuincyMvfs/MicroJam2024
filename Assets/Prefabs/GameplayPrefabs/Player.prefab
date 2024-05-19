@@ -400,6 +400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 100
+  _godFrames: 1
   _hitSounds:
   - {fileID: 4279787293561814280, guid: 84effb531680e004186786ca7c2d44ab, type: 3}
   - {fileID: 4279787293561814280, guid: 898cbc69642ab5a49abd3693a8ea9247, type: 3}
@@ -412,22 +413,22 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2357091462737892910}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 4708116978318463499}
+        m_TargetAssemblyTypeName: PauseFunction, Assembly-CSharp
+        m_MethodName: PauseWithDelay
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 0.5
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 4708116978318463499}
-        m_TargetAssemblyTypeName: PauseFunction, Assembly-CSharp
-        m_MethodName: PauseNoMenu
-        m_Mode: 1
+      - m_Target: {fileID: 2357091462737892910}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1676,6 +1677,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7177354424623573616}
     m_Modifications:
+    - target: {fileID: 1276742703170320647, guid: 78365cdb66f34b848a53a9a82407fc0b, type: 3}
+      propertyPath: _lerpSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6408913338751437978, guid: 78365cdb66f34b848a53a9a82407fc0b, type: 3}
       propertyPath: m_Name
       value: PlayerHUD
