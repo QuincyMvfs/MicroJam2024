@@ -8,27 +8,26 @@ using UnityEngine.VFX;
 public class CircleTravellingProjectile : MonoBehaviour
 {
     [Header("Projectile Settings")]
-    [SerializeField] private float _launchSpeed;
-    [SerializeField] private float _circularMovementSpeed;
+    [SerializeField] private float _launchSpeed = 100f;
+    [SerializeField] private float _rotationDegreesPerSecond = 5f;
     [SerializeField] private float _damage = 45.0f;
-    [SerializeField] private float _circularProjectileLifetime;
-    [SerializeField] private float[] perLaneLifetime;
-    [SerializeField] private Quaternion _rotationOffset;
-    [SerializeField] private float _delayReturnToIdle = 1.0f;
-
-    private float _lifetime = 10f;
+    [SerializeField] private float _lifetime = 20f;
 
     [Header("Components")]
     [SerializeField] private Projectile _projectile;
-    [SerializeField] private Transform _muzzleTransform;
+    [SerializeField] private Transform _launchTransform;
+    [SerializeField] private Transform _rotationPivot;
     [SerializeField] private Transform[] _zoneTransforms; 
 
+    private float _delayReturnToIdle = 1.0f;
     private AIController _aiController;
-    private Projectile spawnedProjectile;
+    private Projectile _spawnedProjectile;
+    private Quaternion _defaultRotation;
     // Start is called before the first frame update
     private void Awake()
     {
         _aiController = GetComponent<AIController>();
+        _defaultRotation = _launchTransform.rotation;
     }
 
     public void LaunchCircleTravellingProjectile()
@@ -41,45 +40,56 @@ public class CircleTravellingProjectile : MonoBehaviour
         //choose lane
         int chosenLane = Random.Range(0, 3);
         Transform randomizedLane = _zoneTransforms[chosenLane];
-        Debug.Log("Launching, Lane" + (1 + chosenLane).ToString());
+        //Debug.Log("Launching, Lane" + (1 + chosenLane).ToString());
+        
         //spawn projectile
-        spawnedProjectile = Instantiate(_projectile, _muzzleTransform.position, _muzzleTransform.rotation);
+        _spawnedProjectile = Instantiate(_projectile, _launchTransform.position, _launchTransform.rotation, _rotationPivot);
+        
         //launch projectile in straight line towards player
-        spawnedProjectile.Launch(0, _damage, _lifetime, this.gameObject);
-        StartCoroutine(LaunchProjectileForwards(spawnedProjectile, randomizedLane));
-        //destroy first projectile by setting lifetime and spawn a new one that travels in a circle
-        StartCoroutine(DelaySecondProjectile());
-    }  
+        _spawnedProjectile.Launch(0, _damage, _lifetime, this.gameObject);
+        StartCoroutine(LaunchProjectileForwards(_spawnedProjectile, randomizedLane));
+    }
+    
     private IEnumerator LaunchProjectileForwards(Projectile projectile, Transform destination)
     {
-        Transform startPoint = transform;
-        while (projectile.transform.position != destination.position)
+        if (projectile != null)
         {
-            float t = projectile.transform.position.z / destination.position.z;
-            projectile.transform.position = Vector3.Lerp(startPoint.position, destination.position, t);
+            Transform startPoint = projectile.transform;
+            while (projectile.transform.position != destination.position)
+            {
+                float t = projectile.transform.position.z / destination.position.z;
+                projectile.transform.position = Vector3.Lerp(startPoint.position, destination.position, t);
+                yield return new WaitForSeconds(1.0f / (_launchSpeed));
+            }
         }
+
         yield return null;
-    }
-    private IEnumerator DelaySecondProjectile()
-    {
-        yield return new WaitForSeconds(_lifetime - 1f);
-        SpawnSecondProjectile();
-        StopCoroutine(DelaySecondProjectile());
+        
+        StartCoroutine(RotateProjectile());
     }
 
+    private IEnumerator RotateProjectile()
+    {
+        while (true)
+        {
+            if (_spawnedProjectile == null)
+            {
+                yield return null;
+            }
+            else
+            {
+                Vector3 rotation = new Vector3(0, _rotationDegreesPerSecond, 0);
+                _rotationPivot.Rotate(rotation);
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+        
+    }
     private IEnumerator DelayReturnToIdle()
     {
         yield return new WaitForSeconds(_delayReturnToIdle);
         _aiController.ResetToIdle();
+        _launchTransform.rotation = _defaultRotation;
         StopCoroutine(DelayReturnToIdle());
-    }
-    private void SpawnSecondProjectile()
-    {
-        if (spawnedProjectile != null)
-        {
-            Quaternion rotationresult = spawnedProjectile.transform.rotation * _rotationOffset;
-            Projectile secondSpawnedProj = Instantiate(_projectile, spawnedProjectile.transform.position, rotationresult);
-            secondSpawnedProj.Launch(_circularMovementSpeed, _damage, _circularProjectileLifetime, this.gameObject);
-        }
     }
 }
