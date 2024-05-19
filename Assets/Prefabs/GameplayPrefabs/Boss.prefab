@@ -769,6 +769,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 10000
+  _godFrames: 1
+  _hitSounds: []
+  _deathSounds: []
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -830,7 +833,7 @@ MonoBehaviour:
   _drawGizmos: 1
   _floor: {fileID: 2294837244763830617}
   _shaderObject: {fileID: 5196483422543474471}
-  _groundPoundWarningSFX: {fileID: 4279787293561814280, guid: 654a5f9527156174fb65dbde6326957a, type: 3}
+  _groundPoundWarningSFX: {fileID: 4279787293561814280, guid: e7c53454b8612204a98b9c02a13fe25a, type: 3}
 --- !u!114 &1255056152233810750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -844,7 +847,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageAmount: 99999
-  _vfxPrefab: {fileID: 0}
+  _buildupVFXPrefab: {fileID: 0}
+  _explosionVFXPrefab: {fileID: 0}
   _warningTimer: 4
   _shaderObject: {fileID: 5196483422543474471}
   _coverObjects:
