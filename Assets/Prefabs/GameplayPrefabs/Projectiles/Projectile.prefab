@@ -147,6 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e550862282bca40bf0dafc735e06d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hitObsticleSFX: {fileID: 4279787293561814280, guid: 8cb9203026702ef41a10532933c584b4, type: 3}
+  _hitHealthSFX: {fileID: 4279787293561814280, guid: 9a5fab17777392545a41487f693c46da, type: 3}
 --- !u!1 &5746336014056300152
 GameObject:
   m_ObjectHideFlags: 0

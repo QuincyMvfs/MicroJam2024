@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9000375104567615236}
   - component: {fileID: 4279787293561814280}
   m_Layer: 0
-  m_Name: SFX_BossShoot
+  m_Name: SFX_ExplosionWarning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,9 +42,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fab66e10501a07b48b3b2b620b0593b2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8a443fcea5611d24791cceafef3431bd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -52,7 +52,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 10
+  MinDistance: 20
   MaxDistance: 30
   Pan2D: 0
   rolloffMode: 0

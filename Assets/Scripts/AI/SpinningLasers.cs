@@ -13,6 +13,7 @@ public class SpinningLasers : MonoBehaviour
     [Header("Components")]
     [SerializeField] private Transform _muzzleTransform;
     [SerializeField] private GameObject _laserPrefab;
+    [SerializeField] private AudioSource _laserSpawnSFX;
 
     private float _timeToStopFiring = 0;
     private AIController _aiController;
@@ -25,6 +26,11 @@ public class SpinningLasers : MonoBehaviour
     public void StartSpinningLasers()
     {
         _timeToStopFiring = Time.time + _attackDuration;
+        if (_laserSpawnSFX != null)
+        {
+            AudioSource SpawnedAudio = Instantiate(_laserSpawnSFX, transform.position, transform.rotation);
+            Destroy(SpawnedAudio, 2f);
+        }
         StartCoroutine(Spinning());
     }
 

@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 478742088381687517}
   - component: {fileID: 6853012599002674328}
   - component: {fileID: 4934611017838323407}
-  - component: {fileID: 9204756535090927191}
+  - component: {fileID: 1276742703170320647}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -111,7 +111,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.000019073486}
   m_SizeDelta: {x: -10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6853012599002674328
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4a7451c07ff0b494a80d143e161ab852, type: 2}
+  m_Material: {fileID: 2100000, guid: 571661ba23eba6b48b5c13d4da3a1d7b, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &9204756535090927191
+--- !u!114 &1276742703170320647
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,11 +161,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4990519112488941773}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5d0ac80f0678bc4e97e227cadc9b4f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 5cbf3ce6a9fa46b4887717604aab92d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barImage: {fileID: 4934611017838323407}
-  duration: 294
 --- !u!1 &6408913338751437978
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +177,7 @@ GameObject:
   - component: {fileID: 8367754141333294545}
   - component: {fileID: 555104558665464061}
   m_Layer: 5
-  m_Name: BossHealthHUD
+  m_Name: PlayerHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
