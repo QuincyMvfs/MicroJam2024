@@ -9,18 +9,16 @@ public class ZoneExplosion : MonoBehaviour
     [SerializeField] private float _damageAmount = 10.0f;
     [SerializeField] private float _warningWaitTime = 2f;
 
-    [Tooltip("Make 2 zones to apply damage if health below this threshold")]
-    [SerializeField] private float _healthThreshold = 50.0f;
+    [Tooltip("Make 2 zones to apply damage if time below this threshold")]
+    [SerializeField] private float _timeThreshold = 100.0f; 
 
     private AIController _aiController;
     private Transform _playerTransform;
 
-    private HealthComponent _healthComponent;
 
     private void Start()
     {
         _aiController = GetComponent<AIController>();
-        _healthComponent = GetComponent<HealthComponent>();
         PlayerController Player = FindObjectOfType<PlayerController>();
         if (Player != null)
         {
@@ -62,7 +60,9 @@ public class ZoneExplosion : MonoBehaviour
         zone.SetIndicatorActive(true);
 
         int secondZoneIndex = -1;
-        if (_healthComponent != null && _healthComponent.CurrentHealth < _healthThreshold)
+        float elapsedTime = Time.time; 
+
+        if (elapsedTime > _timeThreshold)
         {
             // Select a second random zone that is different from the first one
             secondZoneIndex = zoneIndex;
