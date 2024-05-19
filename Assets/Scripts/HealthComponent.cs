@@ -30,11 +30,11 @@ public class HealthComponent : MonoBehaviour
 
         _currentHealth -= amount;
         Mathf.Clamp(_currentHealth, 0, MaxHealth);
-        if (_currentHealth == 0)
+        if (_currentHealth <= 0)
         {
             _isDead = true;
             OnDeath.Invoke();
-           // Debug.Log($"{gameObject.name}: Dead");
+            Debug.Log($"{gameObject.name}: Dead");
         }
 
         // Prevents getting spammed from boss

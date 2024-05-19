@@ -31,6 +31,9 @@ public class CharacterMovement : MonoBehaviour
     private float _nextStepTime = 0;
     private int _currentStep = 0;
     protected IEnumerator _currentState;
+    private float _largeCircleSize = 23.9f;
+    private float _mediumCircleSize = 21.4f;
+    private float _smallCircleSize = 18.9f;
 
     private void Awake()
     {
@@ -45,6 +48,51 @@ public class CharacterMovement : MonoBehaviour
         Quaternion LookRotation = Quaternion.LookRotation(LookPosition);
         transform.rotation = LookRotation;
 
+        switch (_currentStep)
+        {
+            case 0:
+                //23.9
+                CheckPosition(_largeCircleSize);
+                break;
+            case 1:
+                //21.4
+                CheckPosition(_mediumCircleSize);
+                break;
+            case 2:
+                //18.9
+                CheckPosition(_smallCircleSize);
+                break;
+        }
+
+    }
+
+    private void CheckPosition(float value)
+    {
+        if (transform.position.x > value)
+        {
+            Vector3 newPosition = transform.position;
+            newPosition.x = value;
+            transform.position = newPosition;
+        }
+        else if (transform.position.x < -value)
+        {
+            Vector3 newPosition = transform.position;
+            newPosition.x = -value;
+            transform.position = newPosition;
+        }
+
+        if (transform.position.z > value)
+        {
+            Vector3 newPosition = transform.position;
+            newPosition.z = value;
+            transform.position = newPosition;
+        }
+        else if (transform.position.z < -value)
+        {
+            Vector3 newPosition = transform.position;
+            newPosition.z = -value;
+            transform.position = newPosition;
+        }
     }
 
     public void ChangeState(IEnumerator newState)
@@ -100,6 +148,7 @@ public class CharacterMovement : MonoBehaviour
                 else
                 {
                     Debug.Log(hitInfo.collider.gameObject.name);
+                    Debug.Log(hitInfo.point);
                     Debug.DrawRay(obstacleRay.origin, obstacleRay.direction, Color.red, 5.0f);
                 }
             }

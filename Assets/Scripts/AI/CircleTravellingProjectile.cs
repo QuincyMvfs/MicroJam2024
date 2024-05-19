@@ -74,6 +74,7 @@ public class CircleTravellingProjectile : MonoBehaviour
         {
             if (_spawnedProjectile == null)
             {
+                StartCoroutine(DelayReturnToIdle());
                 yield return null;
             }
             else

@@ -9,6 +9,7 @@ public class PauseFunction : MonoBehaviour
 
     public bool IsPaused => _isPaused;
     private bool _isPaused = false;
+    private bool _forcePaused = false;
 
     private void Start()
     {
@@ -17,12 +18,13 @@ public class PauseFunction : MonoBehaviour
 
     public void Pause()
     {
+        if (_forcePaused) return;
+
         _isPaused = !_isPaused;
         if (_isPaused)
         {
             _playerController.StopMovement();
-            Debug.Log("paused");
-            _pausePanel.SetActive(true);
+            if (_pausePanel != null) _pausePanel.SetActive(true);
             Time.timeScale = 0;
         }
         else
@@ -34,8 +36,15 @@ public class PauseFunction : MonoBehaviour
     public void Continue()
     {
         _isPaused = false;
-        Debug.Log("unpaused");
-        _pausePanel.SetActive(false);
+        if (_pausePanel != null) _pausePanel.SetActive(false);
         Time.timeScale = 1;
+    }
+
+    public void PauseNoMenu()
+    {
+        _playerController.StopMovement();
+        _isPaused = true;
+        _forcePaused = true;
+        Time.timeScale = 0;
     }
 }
