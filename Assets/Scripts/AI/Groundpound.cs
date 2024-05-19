@@ -86,7 +86,6 @@ public class Groundpound : MonoBehaviour
 
         // Reset the explosion effect after completion
         ResetExplosion();
-        _aiController.ResetToIdle();
     }
 
     void TriggerExplosionAtRadius(float radius)

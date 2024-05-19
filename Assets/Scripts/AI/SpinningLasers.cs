@@ -53,6 +53,5 @@ public class SpinningLasers : MonoBehaviour
             yield return null;
         }
 
-        _aiController.ResetToIdle();
     }
 }
