@@ -16,7 +16,7 @@ public class SpawnObsticles : MonoBehaviour
 
     private GameObject[] _obsticles = new GameObject[2];
     private Transform _playerTransform;
-    private float _spawnYOffset = 10;
+    public float _spawnYOffset = 10;
     private Vector3 _leftStartPosition;
     private Vector3 _rightStartPosition;
     private bool _isMoving = false;
